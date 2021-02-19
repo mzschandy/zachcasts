@@ -1,9 +1,10 @@
+/* eslint-disable spaced-comment */
 import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../layout";
 import PostListing from "../components/PostListing/PostListing";
-import SEO from "../components/SEO/SEO";
+//import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 import "./listing.css";
 
@@ -41,7 +42,6 @@ function Listing({ pageContext, data }) {
       <div className="listing-container">
         <div className="posts-container">
           <Helmet title={config.siteTitle} />
-          <SEO />
           <PostListing postEdges={postEdges} />
         </div>
         {renderPaging()}

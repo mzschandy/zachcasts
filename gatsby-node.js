@@ -41,11 +41,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const postPage = path.resolve("src/templates/post.jsx");
-  const tagPage = path.resolve("src/templates/tag.jsx");
-  const categoryPage = path.resolve("src/templates/category.jsx");
-  const listingPage = path.resolve("./src/templates/listing.jsx");
-  const landingPage = path.resolve("./src/templates/landing.jsx");
+  const postPage = path.resolve("src/templates/episode/episode.template.js");
+  // const tagPage = path.resolve("src/templates/tag.jsx");
+  // const categoryPage = path.resolve("src/templates/category.jsx");
+  const homePage = path.resolve("./src/templates/home/home.template.js")
+  //const listingPage = path.resolve("./src/templates/listing.jsx");
+  //const landingPage = path.resolve("./src/templates/landing.jsx");
 
   // Get a full list of markdown posts
   const markdownQueryResult = await graphql(`
@@ -73,8 +74,8 @@ exports.createPages = async ({ graphql, actions }) => {
     throw markdownQueryResult.errors;
   }
 
-  const tagSet = new Set();
-  const categorySet = new Set();
+  // const tagSet = new Set();
+  // const categorySet = new Set();
 
   const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
 
@@ -104,7 +105,7 @@ exports.createPages = async ({ graphql, actions }) => {
     [...Array(pageCount)].forEach((_val, pageNum) => {
       createPage({
         path: pageNum === 0 ? `/` : `/${pageNum + 1}/`,
-        component: listingPage,
+        component: homePage,
         context: {
           limit: postsPerPage,
           skip: pageNum * postsPerPage,
@@ -117,23 +118,25 @@ exports.createPages = async ({ graphql, actions }) => {
     // Load the landing page instead
     createPage({
       path: `/`,
-      component: landingPage,
+      component: homePage,
     });
   }
 
   // Post page creating
   postsEdges.forEach((edge, index) => {
     // Generate a list of tags
+    /*
     if (edge.node.frontmatter.tags) {
       edge.node.frontmatter.tags.forEach((tag) => {
         tagSet.add(tag);
       });
-    }
+    } */
 
     // Generate a list of categories
+    /*
     if (edge.node.frontmatter.category) {
       categorySet.add(edge.node.frontmatter.category);
-    }
+    } */
 
     // Create post pages
     const nextID = index + 1 < postsEdges.length ? index + 1 : 0;
@@ -155,6 +158,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   //  Create tag pages
+  /* 
   tagSet.forEach((tag) => {
     createPage({
       path: `/tags/${_.kebabCase(tag)}/`,
@@ -162,8 +166,10 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { tag },
     });
   });
+  */
 
   // Create category pages
+  /*
   categorySet.forEach((category) => {
     createPage({
       path: `/categories/${_.kebabCase(category)}/`,
@@ -171,4 +177,6 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { category },
     });
   });
+  */
 };
+

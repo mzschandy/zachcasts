@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import UserLinks from "../UserLinks/UserLinks";
 import "./Footer.css";
 
 function Footer({ config }) {
@@ -11,7 +10,6 @@ function Footer({ config }) {
   }
   return (
     <footer className="footer">
-      <UserLinks config={config} labeled />
       <div className="notice-container">
         <h4>{copyright}</h4>
 

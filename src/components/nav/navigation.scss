@@ -1,0 +1,40 @@
+#navigation {
+    height: 75px;
+    width: 100%;
+    position: relative;
+    //background-color: red;
+
+    .inner {
+        display: flex;
+        height: 75px;
+        width: 100%;
+        //background-color: red;
+
+        align-items: center;
+
+    }
+
+    .logo {
+        img {
+            width: 50px;
+        }
+    }
+}
+
+.nav {
+   a {
+       color: black;
+   } 
+
+   .site-title {
+       margin-left: 7px;
+       font-size: 1.5em;
+       font-weight: 800;
+   }
+}
+
+@media screen and (max-width: 749px) {
+    #navigation .inner {
+        justify-content: center;
+    }
+}

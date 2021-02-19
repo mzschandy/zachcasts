@@ -1,0 +1,97 @@
+.episodes-list {
+    margin-top: 1em;
+    padding: 0 2em 2em 2em;
+
+    .list-header {
+        margin-bottom: 1em;
+        font-size: 20px;
+    }
+}
+
+.episode {
+    display: flex;
+    padding: 0 15px;
+    flex-direction: row;
+
+    .play-button {
+        display: flex;
+    }
+
+    hr {
+        width: 100%;
+    }
+
+    .fa {
+        font-size: 3em;
+        margin: .5em auto 0;
+        
+    }
+
+    .episode-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .data {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        color: grey;
+        font-size: 13px;
+    }
+
+    .date {
+        margin-right: 10px;
+        color: grey;
+        font-size: 13px;        
+    }
+    .length {
+        color: grey;
+        font-size: 13px;
+    }
+    .title {
+        font-weight: 750;
+        //font-size: 14px;
+    }
+
+}
+
+@media screen and (max-width: 749px) {
+    .episodes-list {
+        padding: 0 .5em .5em .5em;
+        //margin: 1em -15px 0 15px;
+
+        .list-header.sticky-top {
+            //position: fixed;
+            background-color: white;
+            z-index: 5;
+            height: 50px;
+            padding-top: 10px;
+            width: 100%;
+            ///border-bottom: 1px solid grey;
+        }
+    }
+
+    .episode {
+        padding: 0;
+
+        .mobile-play-button {
+            display: flex;
+            margin-top: .5em;
+
+            .play-button {
+                border: 1px solid grey;
+            }
+        }
+
+        .date {
+            margin-right: 5px;
+        }
+
+        .fa {
+            font-size: 1.5em;
+            margin: 0 5px 0 0;
+        }
+
+    }
+}

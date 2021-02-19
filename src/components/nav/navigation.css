@@ -1,0 +1,31 @@
+#navigation {
+  height: 75px;
+  width: 100%;
+  position: relative;
+}
+
+#navigation .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 75px;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#navigation .logo img {
+  width: 50px;
+}
+
+nav a {
+  color: black;
+}
+
+nav .site-title {
+  margin-left: 7px;
+  font-size: 1.5em;
+  font-weight: 800;
+}
+/*# sourceMappingURL=navigation.css.map */
