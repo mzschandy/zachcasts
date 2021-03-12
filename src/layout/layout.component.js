@@ -5,6 +5,7 @@ import Navigation from "../components/nav/navigation.component"
 import config from "../../data/SiteConfig"
 
 import Container from "react-bootstrap/Container"
+import Player from "../components/player/player.component";
 
 export default function Layout({children}) {
     return (

@@ -6,16 +6,18 @@ import {Link} from "gatsby"
 
 import "./episodes.scss"
 
-export default function EpisodesList({episodes}) {
+export default function EpisodesList({episodes, playAudio}) {
     const episodeList = []
     episodes.forEach((episode) => {
         episodeList.push({
             path: episode.node.fields.slug,
             title: episode.node.frontmatter.title,
+            audio: episode.node.frontmatter.audioPath,
             date: episode.node.fields.data,
             exerpt: episode.node.excerpt,
             timeToRead: episode.node.timeToRead,
         })
+        console.log(episode.node.frontmatter)
     })
     return (
         <div className="episodes-list">
@@ -24,7 +26,7 @@ export default function EpisodesList({episodes}) {
                 episodeList.map((episode) => (
                         <Row className="episode">
                             <Col xs={1} md={1} className="play-button">
-                                <span className="fa fa-play-circle"></span>
+                                <span onClick={(event) => playAudio(event, episode.audio)} className="fa fa-play-circle"></span>
                             </Col>
                             <Link to={episode.path} key={episode.title} className="col-12 col-md-11 episode-info">
                                 <div className="data d-none d-md-flex">
@@ -35,7 +37,7 @@ export default function EpisodesList({episodes}) {
                                 <div className="description">{episode.excerpt}</div>
                                 <div className="mobile-play-button d-sm-block d-md-none">
                                     <div className="btn play-button">
-                                        <span className="fa fa-play-circle"></span>
+                                        <span onClick={(event) => this.playAudio(event, episode.audio)} className="fa fa-play-circle"></span>
                                         <div className="date">{episode.date}</div>
                                         <div className="length">2:05:00</div>
                                     </div>

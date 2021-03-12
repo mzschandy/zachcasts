@@ -62,6 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
               tags
               category
               date
+              audioPath
             }
           }
         }

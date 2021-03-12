@@ -10,7 +10,7 @@ import config from "../../../data/SiteConfig"
 import "./episode.scss"
 
 
-export default function Episode({data, pageContext}) {
+export default function Episode({data, pageContext, playAudio}) {
     const {slug} = pageContext
     const episodeNode = data.markdownRemark
     const episode = episodeNode.frontmatter
@@ -18,6 +18,8 @@ export default function Episode({data, pageContext}) {
     if(!episode.id) {
         episode.id = slug
     }
+
+    const audio = episode.audioPath;
 
     return (
         <Layout>
@@ -27,7 +29,7 @@ export default function Episode({data, pageContext}) {
                 <div className="episode-meta">
                     <div className="episode-header">
                         <h1 className="episode-title">{episode.title}</h1>
-                        <div className="btn play-button">
+                        <div className="btn play-button" onClick={(event) => this.playAudio(event, audio)}>
                             <span className="fa fa-play-circle"></span>
                             Play Episode
                         </div>
@@ -55,6 +57,7 @@ export const pageQuery = graphql`
         date
         category
         tags
+        audioPath
       }
       fields {
         slug

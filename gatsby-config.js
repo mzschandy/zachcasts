@@ -176,6 +176,10 @@ module.exports = {
                       date
                       category
                       tags
+                      shortDescription
+                      episodeNumber
+                      audioPath
+                      showLength
                     }
                   }
                 }
