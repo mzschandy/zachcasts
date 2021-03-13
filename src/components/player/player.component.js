@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useContext} from "react"
 import AudioPlayer from "react-h5-audio-player"
 
 import 'react-h5-audio-player/src/styles.scss'
+import PlayerContext from "./player.context"
 
 import "./player.scss"
 
 export default function Player({mp3, index, episodeNumber}) {
 
   const [expand, setExpand] = useState(false)
+  const player = useContext(PlayerContext)
+  const audioFolderPath = "/audio/"
 
   useEffect(() => {
     console.log("useEffect expand", expand)
@@ -53,7 +56,7 @@ export default function Player({mp3, index, episodeNumber}) {
           <div className="playing-source">Blades and Bending</div>
         </div>
       </div>
-      <AudioPlayer src={mp3} onPlay={event => console.log("onPlay")} />
+      <AudioPlayer src={audioFolderPath + player.audio} onPlay={event => console.log("onPlay")} />
     </div>
   )
 }

@@ -1,12 +1,14 @@
 /* eslint-disable react/jsx-filename-extension */
-import React from "react"
+import React, { useContext } from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import {Link} from "gatsby"
+import PlayerContext from "../player/player.context"
 
 import "./episodes.scss"
 
-export default function EpisodesList({episodes, playAudio}) {
+export default function EpisodesList({episodes}) {
+    const player = useContext(PlayerContext)
     const episodeList = []
     episodes.forEach((episode) => {
         episodeList.push({
@@ -20,33 +22,34 @@ export default function EpisodesList({episodes, playAudio}) {
         console.log(episode.node.frontmatter)
     })
     return (
-        <div className="episodes-list">
-            <div className="list-header sticky-top">All Episodes</div>
-            {
-                episodeList.map((episode) => (
-                        <Row className="episode">
-                            <Col xs={1} md={1} className="play-button">
-                                <span onClick={(event) => playAudio(event, episode.audio)} className="fa fa-play-circle"></span>
-                            </Col>
-                            <Link to={episode.path} key={episode.title} className="col-12 col-md-11 episode-info">
-                                <div className="data d-none d-md-flex">
-                                    <div className="date">1/1/2020</div>
-                                    <div className="length">2:05:00</div>
-                                </div>
-                                <div className="title">{episode.title}</div>
-                                <div className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
-                                <div className="mobile-play-button d-sm-block d-md-none">
-                                    <div className="btn play-button">
-                                        <span onClick={(event) => this.playAudio(event, episode.audio)} className="fa fa-play-circle"></span>
-                                        <div className="date">{episode.date}</div>
+             <div className="episodes-list">
+                <div className="list-header sticky-top">All Episodes</div>
+                {
+                    episodeList.map((episode) => (
+                            <Row className="episode">
+                                <Col xs={1} md={1} className="play-button">
+                                    <span onClick={() => player.setAudio(episode.audio)} className="fa fa-play-circle"></span>
+                                </Col>
+                                <Link to={episode.path} key={episode.title} className="col-12 col-md-11 episode-info">
+                                    <div className="data d-none d-md-flex">
+                                        <div className="date">1/1/2020</div>
                                         <div className="length">2:05:00</div>
                                     </div>
-                                </div>
-                                <hr/>
-                            </Link>
-                        </Row>
-                ))
-            }
-        </div>
+                                    <div className="title">{episode.title}</div>
+                                    <div className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+                                    <div className="mobile-play-button d-sm-block d-md-none">
+                                        <div className="btn play-button">
+                                            <span onClick={(event) => this.playAudio(event, episode.audio)} className="fa fa-play-circle"></span>
+                                            <div className="date">{episode.date}</div>
+                                            <div className="length">2:05:00</div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                </Link>
+                            </Row>
+                    ))
+                }
+            </div>
+        
     )
 }

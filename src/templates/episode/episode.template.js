@@ -1,7 +1,7 @@
 import React from "react"
 import {Helmet} from "react-helmet"
 import {graphql} from "gatsby"
-import Layout from "../../layout/layout.component"
+//import Layout from "../../layout/layout.component"
 import EpisodeProfile from "../../components/profiles/episode-profile/episode-profile.component"
 
 import Container from "react-bootstrap/Container"
@@ -22,7 +22,7 @@ export default function Episode({data, pageContext, playAudio}) {
     const audio = episode.audioPath;
 
     return (
-        <Layout>
+        <div>
             <Helmet><title>{`${episode.title} | ${config.siteTitle}`}</title></Helmet>
             <Container id="podcast-episode">
                 <EpisodeProfile episodeDate={episode.date} />
@@ -41,7 +41,7 @@ export default function Episode({data, pageContext, playAudio}) {
                     </div>
                 </div>
             </Container>
-        </Layout>
+        </div>
     )
 }
 

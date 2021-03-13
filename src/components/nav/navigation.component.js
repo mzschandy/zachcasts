@@ -16,7 +16,7 @@ export default function Navigation() {
                 </div>
                 <Nav>
                     <div>
-                        <Link to="/" className="site-title">Frequency</Link>beta
+                        <Link to="/" className="site-title">Zachcasts</Link>beta
                     </div>
                 </Nav>
             </Container>
