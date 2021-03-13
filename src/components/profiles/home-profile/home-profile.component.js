@@ -20,11 +20,9 @@ export default function HomeProfile() {
                     </div>
                 </div>
                 <div className="podcast-bio">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                    <div>Welcome to Blades and Bending, an Avatar themed Dungeons and Dragons podcast hosted by Zach Schandorf-Lartey and played by a ragtag team of his friends, most of who(m?) have have played Dungeons and Dragons before.
+                    </div>
+                    <div>Join Avatar San and the rest of the plucky Team Avatar as they try to follow in Aang and Korra's footsteps and save the world.</div>
                 </div>
                 
             </Col>
