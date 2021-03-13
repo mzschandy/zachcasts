@@ -30,11 +30,11 @@ export default function EpisodesList({episodes, playAudio}) {
                             </Col>
                             <Link to={episode.path} key={episode.title} className="col-12 col-md-11 episode-info">
                                 <div className="data d-none d-md-flex">
-                                    <div className="date">{episode.date}</div>
+                                    <div className="date">1/1/2020</div>
                                     <div className="length">2:05:00</div>
                                 </div>
                                 <div className="title">{episode.title}</div>
-                                <div className="description">{episode.excerpt}</div>
+                                <div className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
                                 <div className="mobile-play-button d-sm-block d-md-none">
                                     <div className="btn play-button">
                                         <span onClick={(event) => this.playAudio(event, episode.audio)} className="fa fa-play-circle"></span>
