@@ -78,6 +78,7 @@ module.exports = {
     "gatsby-plugin-twitter",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sass",
+    "gatsby-plugin-layout",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -176,6 +177,11 @@ module.exports = {
                       date
                       category
                       tags
+                      shortDescription
+                      episodeNumber
+                      audioPath
+                      showLength
+                      fileSize
                     }
                   }
                 }

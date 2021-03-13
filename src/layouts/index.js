@@ -5,16 +5,19 @@ import Navigation from "../components/nav/navigation.component"
 import config from "../../data/SiteConfig"
 
 import Container from "react-bootstrap/Container"
+import Player from "../components/player/player.component";
+import {PlayerProvider} from "../components/player/player.provider" 
 
-export default function Layout({children}) {
+export default ({children}) => {
     return (
-        <div>
+        <PlayerProvider>
             <Helmet>
                 <meta name="description" content={config.siteDescription} />
                 <html lang="en" />
             </Helmet>
             <Navigation/>
             {children}
-        </div>
+            <Player />
+        </PlayerProvider>
     )
 }

@@ -1,0 +1,96 @@
+.player {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  width: 100%;
+  transition:  .5s;
+
+  .currently-playing {display: none;}
+  //pointer-events: none;
+}
+
+
+
+
+
+@media screen and (max-width: 749px) {
+  .rhap_container {
+    position: inherit;
+    bottom: 0;
+  }
+  .rhap_additional-controls, .rhap_volume-controls {
+    display: none;
+  }
+  .rhap_main-controls {
+    margin:  0 auto;
+  }
+
+  .player.active {
+    height: 73%;
+    pointer-events: none;
+    background-color: #fff;
+    border-radius: 20px;
+    //border: 1px solid grey;
+    box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%);
+    pointer-events: none;
+
+    .rhap_container {
+      box-shadow: none;
+    }
+    
+
+    .rhap_main {
+      justify-content: flex-end;
+    }
+
+    .rhap_main-controls button {
+      width: 75px;
+      height: 75px;
+      font-size: 60px;
+      pointer-events: all;
+    }
+
+    .rhap_progress-section {
+      flex: 0 0 auto;
+    }
+    .rhap_controls-section {
+      flex: 0 0 auto;
+      margin-bottom: 1em;
+    }
+
+    .currently-playing {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: .5em;
+      
+  
+      .playing-cover {
+        width: 300px;
+        height: 300px;
+        background-color: grey;
+        margin-top: 1em;
+      }
+
+      .playing-title {
+        font-size: 1.2rem;
+        font-weight: 800;
+        margin: 1em 1em .5em 1em;
+      }
+
+      .playing-source {
+        font-size: .8rem;
+        opacity: .7;
+        
+      }
+
+      i {
+        font-size: 1.5em;
+        pointer-events: all;
+      }
+    }
+  }
+
+  
+}

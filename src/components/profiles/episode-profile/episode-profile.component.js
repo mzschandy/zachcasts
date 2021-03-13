@@ -1,7 +1,7 @@
 import React from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import ImageCover from "../../../../static/logos/blades&bending_cover.png"
+import ImageCover from "../../../../static/assets/blades&bending_cover.png"
 
 import "../profiles.scss"
 

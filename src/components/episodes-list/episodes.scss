@@ -13,6 +13,14 @@
     padding: 0 15px;
     flex-direction: row;
 
+    a {
+        color: #000;
+    }
+
+    &:last-child {
+        margin-bottom: 78px;
+    }
+
     .play-button {
         display: flex;
     }
@@ -44,6 +52,9 @@
         margin-right: 10px;
         color: grey;
         font-size: 13px;        
+    }
+    .dot {
+        margin-right: 10px;
     }
     .length {
         color: grey;
