@@ -1,20 +1,20 @@
 const config = {
-  siteTitle: "Frequency beta", // Site title.
-  siteTitleShort: "Frequency", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  siteTitleAlt: "Frequency Podcasts", // Alternative site title for SEO.
+  siteTitle: "Zachcasts beta", // Site title.
+  siteTitleShort: "Zachcasts", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
+  siteTitleAlt: "Zachcasts Podcasts", // Alternative site title for SEO.
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
   siteUrl: "https://gatsby-advanced-starter-demo.netlify.com", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: "A GatsbyJS starter with Advanced design in mind.", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
-  siteRssTitle: "Gatsby Advanced Starter RSS feed", // Title of the RSS feed
+  siteRssTitle: "Zachcasts RSS feed", // Title of the RSS feed
   siteFBAppID: "1825356251115265", // FB Application ID for using app insights
   googleAnalyticsID: "UA-47311644-5", // GA tracking ID.
   disqusShortname: "https-vagr9k-github-io-gatsby-advanced-starter", // Disqus shortname.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "DD/MM/YYYY", // Date format for display.
   postsPerPage: 100, // Amount of posts displayed per listing page.
-  userName: "Advanced User", // Username to display in the author segment.
+  userName: "Zach Schandorf-Lartey", // Username to display in the author segment.
   userEmail: "AdvancedUser@example.com", // Email used for RSS feed's author segment
   userTwitter: "", // Optionally renders "Follow Me" in the UserInfo segment.
   userLocation: "North Pole, Earth", // User location to display in the author segment.
@@ -39,11 +39,10 @@ const config = {
       iconClassName: "fa fa-envelope",
     },
   ],
-  copyright: "Copyright © 2020. Advanced User", // Copyright string for the footer of the website and RSS feed.
+  copyright: "Copyright © 2020. Zach Schandorf-Lartey", // Copyright string for the footer of the website and RSS feed.
   themeColor: "#c62828", // Used for setting manifest and progress theme colors.
   backgroundColor: "#e0e0e0", // Used for setting manifest background color.
 };
-
 // Validate
 
 // Make sure pathPrefix is empty if not needed

@@ -181,6 +181,7 @@ module.exports = {
                       episodeNumber
                       audioPath
                       showLength
+                      fileSize
                     }
                   }
                 }

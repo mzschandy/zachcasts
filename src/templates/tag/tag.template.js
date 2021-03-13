@@ -1,7 +1,7 @@
 import React from "react";
 import {Helmet} from "react-helmet"
 import {graphql} from "gatsby"
-import Layout from "../../layout/layout.component"
+//import Layout from "../../layout/layout.component"
 import EpisodesList from "../../components/episodes-list/episodes-list.component"
 
 import config from "../../../data/SiteConfig"
@@ -11,12 +11,12 @@ export default function Tag({pageContent, data}) {
     const postEdges = data.allMarkdownRemark.edges
 
     return (
-        <Layout>
+        <div>
             <div className="tag-container">
                 <Helmet title={`Posts tagged as "${tag} | ${config.siteTitle}`} />
                 <EpisodesList postEdges={postEdges} />
             </div>
-        </Layout>
+        </div>
     )
 
 }

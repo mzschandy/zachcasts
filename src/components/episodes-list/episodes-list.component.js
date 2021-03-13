@@ -15,8 +15,9 @@ export default function EpisodesList({episodes}) {
             path: episode.node.fields.slug,
             title: episode.node.frontmatter.title,
             audio: episode.node.frontmatter.audioPath,
-            date: episode.node.fields.data,
-            exerpt: episode.node.excerpt,
+            date: episode.node.fields.date,
+            exerpt: episode.node.frontmatter.shortDescription,
+            showLength: episode.node.frontmatter.showLength,
             timeToRead: episode.node.timeToRead,
         })
         console.log(episode.node.frontmatter)
@@ -27,25 +28,26 @@ export default function EpisodesList({episodes}) {
                 {
                     episodeList.map((episode) => (
                             <Row className="episode">
-                                <Col xs={1} md={1} className="play-button">
+                                <Col xs={1} md={1} className="play-button d-none d-md-block">
                                     <span onClick={() => player.setAudio(episode.audio)} className="fa fa-play-circle"></span>
                                 </Col>
-                                <Link to={episode.path} key={episode.title} className="col-12 col-md-11 episode-info">
+                                <div  key={episode.title} className="col-12 col-md-11 episode-info">
                                     <div className="data d-none d-md-flex">
-                                        <div className="date">1/1/2020</div>
-                                        <div className="length">2:05:00</div>
+                                        <div className="date">{episode.date}</div>
+                                        <div className="dot">•</div> 
+                                        <div className="length">{episode.showLength}</div>
                                     </div>
-                                    <div className="title">{episode.title}</div>
-                                    <div className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+                                    <Link to={episode.path} className="title">{episode.title}</Link>
+                                    <div className="description">{episode.exerpt}</div>
                                     <div className="mobile-play-button d-sm-block d-md-none">
                                         <div className="btn play-button">
-                                            <span onClick={(event) => this.playAudio(event, episode.audio)} className="fa fa-play-circle"></span>
+                                            <span onClick={() => player.setAudio(episode.audio)} className="fa fa-play-circle"></span>
                                             <div className="date">{episode.date}</div>
-                                            <div className="length">2:05:00</div>
+                                            <div className="length">{episode.length}</div>
                                         </div>
                                     </div>
                                     <hr/>
-                                </Link>
+                                </div>
                             </Row>
                     ))
                 }

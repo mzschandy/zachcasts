@@ -59,6 +59,10 @@ export const pageQuery = graphql`
             cover
             date
             audioPath
+            shortDescription
+            episodeNumber
+            audioPath
+            showLength
           }
         }
       }
