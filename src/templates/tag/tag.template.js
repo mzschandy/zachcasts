@@ -8,13 +8,13 @@ import config from "../../../data/SiteConfig"
 
 export default function Tag({pageContext, data}) {
     const {tag} = pageContext
-    const postEdges = data.allMarkdownRemark.edges
+    const episodes = data.allMarkdownRemark.edges
 
     return (
         <div>
             <div className="tag-container">
                 <Helmet title={`Posts tagged as "${tag} | ${config.siteTitle}`} />
-                <EpisodesList postEdges={postEdges} />
+                <EpisodesList episodes={episodes} />
             </div>
         </div>
     )
@@ -42,6 +42,8 @@ export const pageQuery = graphql`
                         tags
                         cover
                         date
+                        shortDescription
+                        episodeNumber
                     }
                 }
             }

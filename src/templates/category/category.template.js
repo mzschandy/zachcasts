@@ -7,7 +7,7 @@ import config from "../../../data/SiteConfig"
 
 export default function Category({pageContext, data}) {
   const {category} = pageContext
-  const postEdges = data.allMarkdownRemark.edges
+  const episodes = data.allMarkdownRemark.edges
 
   return (
     <div>
@@ -15,7 +15,7 @@ export default function Category({pageContext, data}) {
         <Helmet
           title={`Posts in category "${category}" | ${config.siteTitle}`}
         />
-        <EpisodesList postEdges={postEdges} />
+        <EpisodesList episodes={episodes} />
       </div>
     </div>
   )
@@ -42,6 +42,8 @@ export const pageQuery = graphql`
             tags
             cover
             date
+            shortDescription
+            episodeNumber
           }
         }
       }
