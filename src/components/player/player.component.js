@@ -12,7 +12,7 @@ export default function Player({mp3, index, episodeNumber}) {
 
   const [expand, setExpand] = useState(false)
   const player = useContext(PlayerContext)
-  const audioFolderPath = "/audio/"
+  const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/"
 
   useEffect(() => {
     console.log("useEffect expand", expand)

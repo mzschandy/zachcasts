@@ -11,7 +11,7 @@ export const PlayerProvider = ({children}) => {
     setAudio(data);
   }
 
-  const audioFolderPath = "/audio/"
+  const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/"
   console.log("audio path", audioFolderPath + audio)
 
   return (

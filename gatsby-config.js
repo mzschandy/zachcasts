@@ -120,7 +120,7 @@ module.exports = {
         setup(ref) {
           const ret = ref.query.site.siteMetadata.rssMetadata;
           ret.allMarkdownRemark = ref.query.allMarkdownRemark;
-          ret.generator = "GatsbyJS Advanced Starter";
+          ret.generator = "Zachcasts";
           return ret;
         },
         query: `
@@ -153,6 +153,13 @@ module.exports = {
                 custom_elements: [
                   { "content:encoded": edge.node.html },
                   { author: config.userEmail },
+                  {'enclosure': [
+                    {_attr: {
+                      url: config.s3bucket + edge.node.frontmatter.audioPath,
+                      length: Number(edge.node.frontmatter.fileSize) * 1000 * 1000, // megabytes to bytes
+                      type: "audio/mpeg",
+                    }},
+                  ]},
                 ],
               }));
             },

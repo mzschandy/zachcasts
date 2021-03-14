@@ -6,7 +6,7 @@ import EpisodesList from "../../components/episodes-list/episodes-list.component
 
 import config from "../../../data/SiteConfig"
 
-export default function Tag({pageContent, data}) {
+export default function Tag({pageContext, data}) {
     const {tag} = pageContext
     const postEdges = data.allMarkdownRemark.edges
 
