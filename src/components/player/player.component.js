@@ -3,7 +3,7 @@ import AudioPlayer from "react-h5-audio-player"
 
 import 'react-h5-audio-player/src/styles.scss'
 import PlayerContext from "./player.context"
-import ImageCover from "../../../static/assets/blades&bending_cover.png"
+import ImageCover from "../../../static/logos/blades&bending_cover.png"
 
 
 import "./player.scss"
@@ -20,32 +20,32 @@ export default function Player({mp3, index, episodeNumber}) {
 
   function expandPlayer() {
     const player = document.getElementById("player")
-    console.log(player)
-    console.log("current expand value", expand)
+    //console.log(player)
+    //console.log("current expand value", expand)
 
-    console.log("expanding player")
+    //console.log("expanding player")
 
     player.classList.add("active")
 
     if (player.classList.contains("active") && expand == true) {
-      console.log("player still has active, removing now")
+      //console.log("player still has active, removing now")
       player.classList.remove("active")
       setExpand(current => !current)
     } else {
       setExpand(current => !current)
-      console.log("new expand value", expand)
+      //console.log("new expand value", expand)
     
-      console.log("added active class")
+      //console.log("added active class")
     }
   }
 
   function shrink() {
     const player = document.getElementById("player")
-    console.log("shrinking player!")
+    //console.log("shrinking player!")
 
     player.classList.remove("active")
 
-    console.log("removed active class")
+    //console.log("removed active class")
   }
 
   return(

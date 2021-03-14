@@ -20,7 +20,7 @@ export default function EpisodesList({episodes}) {
             showLength: episode.node.frontmatter.showLength,
             timeToRead: episode.node.timeToRead,
         })
-        console.log(episode.node.frontmatter)
+        //console.log(episode.node.frontmatter)
     })
     return (
              <div className="episodes-list">

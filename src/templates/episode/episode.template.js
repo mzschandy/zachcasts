@@ -30,7 +30,7 @@ export default function Episode({data, pageContext}) {
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
             </Helmet>
             <Container id="podcast-episode">
-                <EpisodeProfile episodeDate={episode.date} episodeLength={episode.showLength} />
+                <EpisodeProfile episodeDate={episode.date} />
                 <div className="episode-meta">
                     <div className="episode-header">
                         <h1 className="episode-title">{episode.title}</h1>
@@ -65,7 +65,6 @@ export const pageQuery = graphql`
         audioPath
         episodeNumber
         audioPath
-        showLength
       }
       fields {
         slug
