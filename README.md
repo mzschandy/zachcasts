@@ -4,7 +4,7 @@
 
 A podcast player/website for my collection of self-produced podcasts. Built using React and GatsbyJS and deployed to Netlify. Based off of the [gatsby-advanced-starter](https://github.com/vagr9k/gatsby-advanced-starter) theme from vagr9k.
 
-To-do
+### To-do
 - add the rest of the Blades and Bending episodes
 - fix date and time formatting
 - css fixes and updates
