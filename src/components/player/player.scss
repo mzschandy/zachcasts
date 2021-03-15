@@ -19,7 +19,7 @@
     bottom: 0;
   }
   .rhap_additional-controls, .rhap_volume-controls {
-    display: none;
+    display: none !important;
   }
   .rhap_main-controls {
     margin:  0 auto;
