@@ -1,0 +1,40 @@
+.menu-bar {
+  display: none;
+  position: fixed;
+  z-index: 50;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  height: 58px;
+
+  .inner {
+    display: flex;
+  }
+
+  .action {
+    margin: 0 auto;
+    justify-content: center;
+
+    i {
+      font-size: 24px;
+    }
+
+    &:last-child {
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+
+  .one-half {
+    flex: 50%;
+    display: flex;
+    padding-top: .5em;
+  }
+}
+
+
+@media screen and (max-width: 749px) {
+  .menu-bar {
+    display: block
+  }
+}
