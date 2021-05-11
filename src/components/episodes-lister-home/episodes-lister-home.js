@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "gatsby"
 
 import "./episodes.scss"
 
@@ -26,7 +27,7 @@ const HomeEpisodesLister = ({episodes}) => {
   const episodeList = getEpisodeList()
   return (
     <div className="episodes-wrapper home">
-      <div className="header">Recent Episdes</div>
+      <div className="header">Recent Episodes</div>
       <div className="lister">
         {episodeList.map((episode, index) => (
           <div className="episode">
@@ -36,7 +37,7 @@ const HomeEpisodesLister = ({episodes}) => {
               <div className="date">{episode.date}</div>
               <div className="time">{episode.showLength}</div>
             </div>
-            <div className="title">{episode.title}</div>
+            <Link to={episode.path} className="title">{episode.title}</Link>
             <div className="description">{episode.exerpt}</div>
             <div className="show-name">{episode.show}</div>
           </div>

@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "gatsby"
 
 import "./show.scss"
 
@@ -16,11 +17,11 @@ const EpisodesLister = ({episodes}) => {
           <div className="episode-info">
             <div className="release-info">
               <div className="date">{episode.date}</div>
-              <div className="time">1h 22m</div>
+              <div className="time">{episode.showLength}</div>
             </div>
-            <div className="title">{episode.title}</div>
+            <Link to={episode.path} className="title">{episode.title}</Link>
             <div className="description">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+            {episode.description}
             </div>
           </div>
           <i className="fa fa-play" />

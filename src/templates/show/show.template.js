@@ -8,9 +8,9 @@ const ShowTemplate = ({pageContext, data}) => {
   const {show} = pageContext
   const showEdges = data.allMarkdownRemark.edges
   return(
-    <div className="wrapper">
+    <>
       <Show showEdges={showEdges} showName={show} />
-    </div>
+    </>
   )
 }
 
@@ -38,6 +38,9 @@ export const pageQuery = graphql`
             show
             cover
             date
+            shortDescription
+            audioPath
+            showLength
           }
         }
       }

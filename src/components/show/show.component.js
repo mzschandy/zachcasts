@@ -21,7 +21,10 @@ const Show = ({showEdges, showName}) => {
       tags: showEdge.node.frontmatter.tags,
       cover: showEdge.node.frontmatter.cover,
       title: showEdge.node.frontmatter.title,
-      date: showEdge.node.fields.date,
+      date: showEdge.node.frontmatter.date,
+      description: showEdge.node.frontmatter.shortDescription,
+      audioPath: showEdge.node.frontmatter.audioPath,
+      showLength: showEdge.node.frontmatter.showLength
     })
   })
 
