@@ -43,7 +43,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const postPage = path.resolve("src/templates/episode/episode.template.js");
   const tagPage = path.resolve("src/templates/tag/tag.template.js");
-  const categoryPage = path.resolve("src/templates/category/category.template.js");
+  const showPage = path.resolve("src/templates/show/show.template.js")
+  //const categoryPage = path.resolve("src/templates/category/category.template.js");
   const homePage = path.resolve("./src/templates/home/home.template.js")
   //const listingPage = path.resolve("./src/templates/listing.jsx");
   //const landingPage = path.resolve("./src/templates/landing.jsx");
@@ -60,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter {
               title
               tags
-              category
+              show
               date
               shortDescription
               episodeNumber
@@ -78,7 +79,8 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const tagSet = new Set();
-  const categorySet = new Set();
+  //const categorySet = new Set();
+  const showSet = new Set();
 
   const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
 
@@ -137,8 +139,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
     // Generate a list of categories
     
-    if (edge.node.frontmatter.category) {
-      categorySet.add(edge.node.frontmatter.category);
+    if (edge.node.frontmatter.show) {
+      showSet.add(edge.node.frontmatter.show);
     }
 
     // Create post pages
@@ -176,11 +178,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create category pages
   
-  categorySet.forEach((category) => {
+  showSet.forEach((show) => {
     createPage({
-      path: `/categories/${_.kebabCase(category)}/`,
-      component: categoryPage,
-      context: { category },
+      path: `/shows/${_.kebabCase(show)}/`,
+      component: showPage,
+      context: { show },
     });
   });
   

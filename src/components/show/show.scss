@@ -18,6 +18,12 @@
       align-self: center;
     }
 
+    img {
+      width: 150px;
+      height: 150px;
+      align-self: center;
+    }
+
     .bio {
       display: none;
     }
@@ -62,6 +68,10 @@
         width: 100px;
         height: 100px;
       }
+      img {
+        width: 100px;
+        height: 100px;
+      }
       .bio {
         display: block;
         margin-left: 1em;
@@ -103,6 +113,12 @@
       height: 68px;
       background-color: grey;
       align-self: center;
+
+      img {
+        width: 68px;
+        height: 68px;
+        align-self: center;
+      }
       //flex: 20%;
     }
 
@@ -138,6 +154,11 @@
       .cover {
         width: 40px;
         height: 40px;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
       }
 
       .episode-info {

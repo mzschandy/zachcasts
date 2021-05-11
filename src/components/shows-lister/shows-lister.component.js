@@ -1,24 +1,22 @@
+import { graphql } from "gatsby"
 import React from "react"
+import _ from "lodash";
+import { Link } from "gatsby";
 
 import "./shows.scss"
 
-const ShowsLister = () => {
+const ShowsLister = ({shows}) => {
+  console.log("shows", shows)
   return (
     <div className="shows-lister">
       <div className="header">Shows</div>
       <div className="lister">
-        <div className="show">
-          <div className="cover"></div>
-          <div className="name">Podcast</div>
-        </div>
-        <div className="show">
-          <div className="cover"></div>
-          <div className="name">Podcast</div>
-        </div>
-        <div className="show">
-          <div className="cover"></div>
-          <div className="name">Podcast</div>
-        </div>
+        {shows.map((show) => (
+          <Link key={show.show} to={`/shows/${_.kebabCase(show.show)}`} className="show">
+            <div className="cover"><img src={show.cover}></img></div>
+            <div className="name">{show.show}</div>
+          </Link>
+        ))}
       </div>
     </div>
   )

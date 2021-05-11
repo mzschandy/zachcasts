@@ -176,7 +176,7 @@ module.exports = {
                       title
                       cover
                       date
-                      category
+                      show
                       tags
                       shortDescription
                       episodeNumber

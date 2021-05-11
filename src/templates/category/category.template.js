@@ -20,7 +20,7 @@ export default function Category({pageContext, data}) {
     </div>
   )
 }
-
+/*
 export const pageQuery = graphql`
   query Category($category: String) {
     allMarkdownRemark(
@@ -49,4 +49,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`;*/

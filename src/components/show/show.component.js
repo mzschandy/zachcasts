@@ -1,33 +1,54 @@
 import React from "react"
 import HomeEpisodesLister from "../episodes-lister-home/episodes-lister-home"
 import EpisodesLister from "./episodes-lister.component"
+//import Logo from "../../../static/"
+import ImageCover from "../../../static/logos/blades&bending_cover.png"
+
 
 import "./show.scss"
 
-const Show = () => {
+const Show = ({showEdges, showName}) => {
+  const showList = []
+  console.log("showedges", showEdges[0].node.frontmatter.cover)
+
+  const coverImage = `../../../static/logos/${showEdges[0].node.frontmatter.cover}`
+
+  console.log(coverImage)
+  
+  showEdges.forEach((showEdge) => {
+    showList.push({
+      path: showEdge.node.fields.slug,
+      tags: showEdge.node.frontmatter.tags,
+      cover: showEdge.node.frontmatter.cover,
+      title: showEdge.node.frontmatter.title,
+      date: showEdge.node.fields.date,
+    })
+  })
+
+  console.log("showlist", showList)
   return (
     <div>
       <div className="show-wrapper">
       <div className="show">
         <div className="cover">
-          <div className="fake-img">Img</div>
+          <div className="fake-img">
+            <img src={coverImage} alt="logo"></img>
+          </div>
           <div className="bio">
-            <div className="name">Podcast</div>
+            <div className="name">{showName}</div>
             <div className="author">by Podcast author</div>
           </div>
         </div>
         <div className="show-info">
           <div className="bio">
-            <div className="name">Podcast</div>
-            <div className="author">by Podcast author</div>
+            <div className="name">{showName}</div>
+            <div className="author">by Zach Schandorf-Lartey</div>
           </div>
-          <div className="description">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
-          </div>
+          <div className="description">This is a description lots oflorem text</div>
         </div>
       </div>
     </div>
-    <EpisodesLister/>
+    <EpisodesLister episodes={showList} />
     </div>
   )
 }
