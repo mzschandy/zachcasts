@@ -12,7 +12,7 @@ export default function Navigation() {
         <div id="navigation">
             <Container className="inner">
                 <div className="logo">
-                    <img src={Logo} alt="logo"/>
+                    {/*<img src={Logo} alt="logo"/>*/}
                 </div>
                 <Nav>
                     <div>

@@ -3,15 +3,13 @@ import {Helmet} from "react-helmet"
 import {graphql} from "gatsby"
 //import Layout from "../../layout/layout.component"
 import PlayerContext from "../../components/player/player.context"
-import EpisodeProfile from "../../components/profiles/episode-profile/episode-profile.component"
-
-import Container from "react-bootstrap/Container"
+import Episode from "../../components/episode/episode.component"
 
 import config from "../../../data/SiteConfig"
 import "./episode.scss"
 
 
-export default function Episode({data, pageContext}) {
+export default function EpisodeTemplate({data, pageContext}) {
     const {slug} = pageContext
     const episodeNode = data.markdownRemark
     const episode = episodeNode.frontmatter
@@ -29,23 +27,7 @@ export default function Episode({data, pageContext}) {
               <title>{`${episode.title} | ${config.siteTitle}`}</title>
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
             </Helmet>
-            <Container id="podcast-episode">
-                <EpisodeProfile episodeDate={episode.date} />
-                <div className="episode-meta">
-                    <div className="episode-header">
-                        <h1 className="episode-title">{episode.title}</h1>
-                        <div className="btn play-button" onClick={() => player.setAudio(audio)}>
-                            <span className="fa fa-play-circle"></span>
-                            Play Episode
-                        </div>
-                    </div>
-                    <div className="episode-notes">
-                        <div class="notes-inner">
-                            <div dangerouslySetInnerHTML={{ __html: episodeNode.html }} />
-                        </div>
-                    </div>
-                </div>
-            </Container>
+            <Episode episodeNode={episodeNode} />
         </div>
     )
 }

@@ -3,7 +3,6 @@ import AudioPlayer from "react-h5-audio-player"
 
 import 'react-h5-audio-player/src/styles.scss'
 import PlayerContext from "./player.context"
-import ImageCover from "../../../static/logos/blades&bending_cover.png"
 
 
 import "./player.scss"
@@ -19,7 +18,7 @@ export default function Player({mp3, index, episodeNumber}) {
   }, [expand])
 
   function expandPlayer() {
-    const player = document.getElementById("player")
+    const player = document.getElementById("mobilePlayer")
     //console.log(player)
     //console.log("current expand value", expand)
 
@@ -40,25 +39,39 @@ export default function Player({mp3, index, episodeNumber}) {
   }
 
   function shrink() {
-    const player = document.getElementById("player")
-    //console.log("shrinking player!")
+    const player = document.getElementById("mobilePlayer")
+    //console.log("shrinking mobile player!")
 
     player.classList.remove("active")
 
-    //console.log("removed active class")
+    //console.log("removed active class mobile player")
   }
 
+  const ImageCover = "https://zachcasts.s3.us-east-2.amazonaws.com/blades%26bending_cover.png";
+
   return(
-    <div className="player" id="player" onClick={expandPlayer}>
-      <div className="currently-playing">
-        <div className="top"><i onClick={shrink} id="slideDown" className="fa fa-sort-down"></i></div>
-        <div className="playing-cover"><img src={ImageCover}></img></div>
-        <div className="playing-details">
-          <div className="playing-title">Ep. 1: Missing (Book 1 - Chapter 1)</div>
-          <div className="playing-source">Blades and Bending</div>
+    <>
+      <div className="player" id="player" onClick={expandPlayer}>
+        <div className="currently-playing">
+          <div className="playing-cover"><img src={ImageCover}></img></div>
+          <div className="playing-details">
+            <div className="playing-title">Ep. 1: Missing (Book 1 - Chapter 1)</div>
+            <div className="playing-source">Blades and Bending</div>
+          </div>
         </div>
+        <AudioPlayer src={audioFolderPath + player.audio} onPlay={event => console.log("onPlay")} />
       </div>
-      <AudioPlayer src={audioFolderPath + player.audio} onPlay={event => console.log("onPlay")} />
-    </div>
+      <div className="player" id="mobilePlayer">
+        <div className="currently-playing">
+          <div className="top"><i onClick={shrink} id="slideDown" className="fa fa-sort-down"></i></div>
+          <div className="playing-cover"><img src={ImageCover}></img></div>
+          <div className="playing-details">
+            <div className="playing-title">This is an episode name</div>
+            <div className="playing-source">Podcast</div>
+          </div>
+        </div>
+        <AudioPlayer src={audioFolderPath + player.audio} onPlay={event => console.log("onPlay")} />
+      </div>
+    </>
   )
 }

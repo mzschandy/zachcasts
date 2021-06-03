@@ -1,12 +1,27 @@
 .player {
-  position: fixed;
+  position: absolute;
   z-index: 10;
-  bottom: 0;
+  bottom: 50px;
   width: 100%;
-  transition:  .5s;
 
   .currently-playing {display: none;}
   //pointer-events: none;
+}
+
+#mobilePlayer.player {
+  position: absolute;
+  z-index: 50;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  transition: .45s;
+  //display: none;
+
+  .currently-playing {display: none;}
+
+  .rhap_container {
+    display: none;
+  }
 }
 
 
@@ -15,8 +30,7 @@
 
 @media screen and (max-width: 749px) {
   .rhap_container {
-    position: inherit;
-    bottom: 0;
+    background-color: #F5F5F5 !important;
   }
   .rhap_additional-controls, .rhap_volume-controls {
     display: none !important;
@@ -25,29 +39,67 @@
     margin:  0 auto;
   }
 
-  .player.active {
-    height: 73%;
+  
+  .rhap_main * {
+    color: #000;
+  }
+
+  .rhap_rewind-button, .rhap_forward-button {
+    display: none;
+  }
+
+  .rhap_progress-bar {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    height: 2px;
+  }
+
+  .rhap_progress-indicator {
+    background-color: #000 !important;
+  }
+
+  #mobilePlayer.player.active {
+    //display: block;
+    height: 78%;
     pointer-events: none;
-    background-color: #fff;
+    background-color: #F5F5F5;
     border-radius: 20px;
     //border: 1px solid grey;
     box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%);
     pointer-events: none;
+    z-index: 50;
+    //transition: .2s;
 
     .rhap_container {
       box-shadow: none;
+      display: flex;
+      margin-top: 3em;
     }
     
 
     .rhap_main {
       justify-content: flex-end;
+      color: #000;
+    }
+
+    .rhap_rewind-button, .rhap_forward-button {
+      display: none;
+    }
+
+    .rhap_progress-bar {
+      background-color: rgba(0, 0, 0, 0.5);
+      height: 2px;
+    }
+
+    .rhap_progress-indicator {
+      background-color: #000;
     }
 
     .rhap_main-controls button {
       width: 75px;
       height: 75px;
-      font-size: 60px;
+      font-size: 80px;
       pointer-events: all;
+      color: #000;
     }
 
     .rhap_progress-section {
@@ -67,13 +119,13 @@
       
   
       .playing-cover {
-        width: 300px;
-        height: 300px;
+        width: 226px;
+        height: 226px;
         margin-top: 1em;
         
         img {
-          width: 300px;
-          height: 300px;
+          width: 226px;
+          height: 226px;
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;
@@ -81,8 +133,8 @@
       }
 
       .playing-title {
-        font-size: 1.2rem;
-        font-weight: 800;
+        font-size: 1.1rem;
+        font-weight: 500;
         margin: 1em 1em .5em 1em;
       }
 
@@ -95,6 +147,7 @@
       i {
         font-size: 1.5em;
         pointer-events: all;
+        color: #CCCBCB;
       }
     }
   }

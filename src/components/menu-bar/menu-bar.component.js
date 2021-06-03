@@ -6,7 +6,7 @@ const MenuBar = () => {
   return (
     <div className="menu-bar">
       <div className="inner">
-        <a href="/test" className="one-half">
+        <a href="/" className="one-half">
           <div className="action">
             <i class="fa fa-home"></i>
             <div>Home</div>

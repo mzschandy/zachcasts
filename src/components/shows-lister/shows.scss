@@ -11,29 +11,26 @@
     grid-template-columns: auto auto auto;
   }
 
-  .show {
+  .show-lister-item {
     display: flex;
     flex-direction: column;
     width: 150px;
 
     .cover {
-      background-color: grey;
+      //background-color: grey;
       width:150px;
       height: 150px;
+
+      img {
+        width: 150px;
+        height: 150px;
+      }
     }
 
     .name {
       font-size: 14px;
       text-align: center;
     }
-  }
-
-  .show:nth-child(3n+2) {
-    justify-self: center;
-  }
-
-  .show:nth-child(3n+3) {
-    justify-self: flex-end;
   }
 }
 
@@ -45,12 +42,17 @@
       grid-column-gap: 0;
     }
 
-    .show {
+    .show-lister-item {
       width: 125px;
 
       .cover {
         width: 125px;
         height: 125px;
+
+        img {
+          width: 125px;
+          height: 125px;
+        }
       }
 
       .name{display: none;}

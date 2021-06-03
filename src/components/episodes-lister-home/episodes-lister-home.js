@@ -25,13 +25,14 @@ const HomeEpisodesLister = ({episodes}) => {
   }
 
   const episodeList = getEpisodeList()
+  const imgPath = "https://s3.us-east-2.amazonaws.com/zachcasts/"
   return (
     <div className="episodes-wrapper home">
       <div className="header">Recent Episodes</div>
       <div className="lister">
         {episodeList.map((episode, index) => (
           <div className="episode">
-          <div className="cover"><img src={episode.cover} alt="Podcast cover" ></img></div>
+          <div className="cover"><img src={imgPath+episode.cover} alt="Podcast cover" ></img></div>
           <div className="episode-info">
             <div className="release-info">
               <div className="date">{episode.date}</div>

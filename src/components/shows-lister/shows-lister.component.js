@@ -7,13 +7,15 @@ import "./shows.scss"
 
 const ShowsLister = ({shows}) => {
   console.log("shows", shows)
+  const imgPath = "https://s3.us-east-2.amazonaws.com/zachcasts/"
+  
   return (
     <div className="shows-lister">
       <div className="header">Shows</div>
       <div className="lister">
         {shows.map((show) => (
-          <Link key={show.show} to={`/shows/${_.kebabCase(show.show)}`} className="show">
-            <div className="cover"><img src={show.cover}></img></div>
+          <Link key={show.show} to={`/shows/${_.kebabCase(show.show)}`} className="show-lister-item">
+            <div className="cover"><img src={imgPath+show.cover}></img></div>
             <div className="name">{show.show}</div>
           </Link>
         ))}
