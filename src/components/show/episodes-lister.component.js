@@ -10,13 +10,14 @@ const EpisodesLister = ({episodes}) => {
   const player = useContext(PlayerContext)
   console.log(episodes)
 
-  const setPlayer = (audio, title) => {
+  const setPlayer = (audio, title, image) => {
     player.setAudio(audio);
-    //player.setImage(image);
+    player.setImage(image);
     player.setTitle(title);
   }
 
-  const playingToggle = player.playing;
+  //const playingToggle = player.playing;
+  const imgPath = "https://s3.us-east-2.amazonaws.com/zachcasts/"
   return (
     <div className="wrapper-outer">
       <div className="episodes-wrapper">
@@ -34,7 +35,7 @@ const EpisodesLister = ({episodes}) => {
             {episode.description}
             </div>
           </div>
-          <i onClick={() => setPlayer(episode.audioPath, episode.title)} className="fa fa-play-circle-o" />
+          <i onClick={() => setPlayer(episode.audioPath, episode.title, imgPath+episode.cover)} className="fa fa-play-circle-o" />
         </div>
         ))}
       </div>

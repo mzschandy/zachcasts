@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useContext} from "react"
 import {Helmet} from "react-helmet"
 import {graphql} from "gatsby"
 //import Layout from "../../layout/layout.component"
@@ -12,6 +12,7 @@ import Player from "../../components/player/player.component"
 import PlayerContext from "../../components/player/player.context"
 import ShowsLister from "../../components/shows-lister/shows-lister.component"
 import HomeEpisodesLister from "../../components/episodes-lister-home/episodes-lister-home"
+import MenuBarContext from "../../components/menu-bar/menu-bar.context"
 
 const Home = ({data}) => {
     const episodes = data.allMarkdownRemark.edges
@@ -57,6 +58,7 @@ const Home = ({data}) => {
       })
     })
 
+
     return (
         <div>
           <Helmet>
@@ -67,7 +69,7 @@ const Home = ({data}) => {
             <ShowsLister shows={shows} />
             <HomeEpisodesLister episodes={episodes} />
           </div>
-          {/*<Player mp3={audioFolderPath + audio} /> */}
+
         </div>
     )
 }

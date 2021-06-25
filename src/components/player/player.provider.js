@@ -15,7 +15,7 @@ export const PlayerProvider = ({children}) => {
   }
 
   return (
-    <PlayerContext.Provider value={{audio, setAudio, title, setTitle}}>
+    <PlayerContext.Provider value={{audio, setAudio, title, setTitle, image, setImage}}>
       {children}
       {/*<Player mp3={audioFolderPath + audio} />*/}
     </PlayerContext.Provider>

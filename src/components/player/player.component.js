@@ -47,13 +47,13 @@ export default function Player({mp3, index, episodeNumber}) {
     //console.log("removed active class mobile player")
   }
 
-  const ImageCover = "https://zachcasts.s3.us-east-2.amazonaws.com/blades%26bending_cover.png";
+  const imageFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
 
   return(
     <>
       <div className="player" id="player" onClick={expandPlayer}>
         <div className="currently-playing">
-          <div className="playing-cover"><img src={ImageCover}></img></div>
+          <div className="playing-cover"><img src={imageFolderPath}></img></div>
           <div className="playing-details">
             <div className="playing-title">Ep. 1: Missing (Book 1 - Chapter 1)</div>
             <div className="playing-source">Blades and Bending</div>
@@ -61,7 +61,7 @@ export default function Player({mp3, index, episodeNumber}) {
         </div>
         <AudioPlayer layout="stacked-reverse" src={audioFolderPath + player.audio} onPlay={event => console.log("onPlay")}
         customControlsSection={[
-          <div className="playing-cover"><img src={ImageCover}></img></div>,
+          <div className="playing-cover"><img src={player.image}></img></div>,
           <div className="playing-details">
             <div className="playing-title">{player.title}</div>
           </div>,

@@ -11,12 +11,14 @@ import MenuBar from "../components/menu-bar/menu-bar.component";
 import {NavProvider} from "../components/nav/nav.provider"
 
 import "./layout.scss"
+import { MenuBarProvider } from "../components/menu-bar/menu-bar.provider";
 
 export default ({children}) => {
     return (
         <NavProvider>
 <PlayerProvider>
-            <Helmet>
+    <MenuBarProvider>
+    <Helmet>
                 <meta name="description" content={config.siteDescription} />
                 <html lang="en" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -26,6 +28,8 @@ export default ({children}) => {
             {children}
             <MenuBar />
             <Player />
+    </MenuBarProvider>
+            
         </PlayerProvider>
         </NavProvider>
             

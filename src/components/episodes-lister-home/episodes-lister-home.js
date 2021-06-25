@@ -3,9 +3,11 @@ import {Link} from "gatsby"
 import PlayerContext from "../player/player.context"
 
 import "./episodes.scss"
+import MenuBarContext from "../menu-bar/menu-bar.context"
 
 const HomeEpisodesLister = ({episodes}) => {
   const player = useContext(PlayerContext)
+  const active = useContext(MenuBarContext)
 
   const getEpisodeList = () => {
     const episodeList = []
@@ -27,9 +29,9 @@ const HomeEpisodesLister = ({episodes}) => {
     return episodeList
   }
 
-  const setPlayer = (audio, title) => {
+  const setPlayer = (audio, title, image) => {
     player.setAudio(audio);
-    //player.setImage(image);
+    player.setImage(image);
     player.setTitle(title);
   }
 
@@ -37,6 +39,7 @@ const HomeEpisodesLister = ({episodes}) => {
   const imgPath = "https://s3.us-east-2.amazonaws.com/zachcasts/"
   return (
     <div className="episodes-wrapper home">
+      {active.setActive("home")}
       <div className="header">Recent Episodes</div>
       <div className="lister">
         {episodeList.map((episode, index) => (
@@ -51,7 +54,7 @@ const HomeEpisodesLister = ({episodes}) => {
             <div className="description">{episode.exerpt}</div>
             <div className="show-name">{episode.show}</div>
           </div>
-          <i onClick={() => setPlayer(episode.audio, episode.title)} className="fa fa-play-circle-o" />
+          <i onClick={() => setPlayer(episode.audio, episode.title, imgPath+episode.cover)} className="fa fa-play-circle-o" />
         </div>
         ))}
       </div>
