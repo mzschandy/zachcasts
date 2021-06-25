@@ -15,7 +15,7 @@ const MenuBar = () => {
         <a href="/about" className="one-half">
           <div className="action">
             <i class="fa fa-gear"></i>
-            <div>Home</div>
+            <div>Settings</div>
           </div>
         </a>
       </div>

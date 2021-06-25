@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from "react"
-import AudioPlayer from "react-h5-audio-player"
+import AudioPlayer, {RHAP_UI} from "react-h5-audio-player"
 
 import 'react-h5-audio-player/src/styles.scss'
 import PlayerContext from "./player.context"
@@ -59,18 +59,15 @@ export default function Player({mp3, index, episodeNumber}) {
             <div className="playing-source">Blades and Bending</div>
           </div>
         </div>
-        <AudioPlayer src={audioFolderPath + player.audio} onPlay={event => console.log("onPlay")} />
-      </div>
-      <div className="player" id="mobilePlayer">
-        <div className="currently-playing">
-          <div className="top"><i onClick={shrink} id="slideDown" className="fa fa-sort-down"></i></div>
-          <div className="playing-cover"><img src={ImageCover}></img></div>
+        <AudioPlayer layout="stacked-reverse" src={audioFolderPath + player.audio} onPlay={event => console.log("onPlay")}
+        customControlsSection={[
+          <div className="playing-cover"><img src={ImageCover}></img></div>,
           <div className="playing-details">
-            <div className="playing-title">This is an episode name</div>
-            <div className="playing-source">Podcast</div>
-          </div>
-        </div>
-        <AudioPlayer src={audioFolderPath + player.audio} onPlay={event => console.log("onPlay")} />
+            <div className="playing-title">{player.title}</div>
+          </div>,
+          RHAP_UI.MAIN_CONTROLS,
+        ]}
+        />
       </div>
     </>
   )

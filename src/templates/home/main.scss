@@ -1,12 +1,18 @@
 @import "~bootstrap/scss/bootstrap";
 
+.wrapper {
+    //width: 494px;
+    max-width: 1004px;
+    margin: 0 auto;
+}
+
 .profile {
     display: flex;
     margin-top: 2em;
     padding: 2em;
-
-    
 }
+
+
 
 .image-cover {
     img {
