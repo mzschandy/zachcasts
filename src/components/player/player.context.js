@@ -1,5 +1,5 @@
-import React from "react"
+import React from "react";
 
-const PlayerContext = React.createContext()
+const PlayerContext = React.createContext();
 
-export default PlayerContext
+export default PlayerContext;

@@ -1,5 +1,5 @@
-import React from "react"
+import React from "react";
 
-const NavContext = React.createContext()
+const NavContext = React.createContext();
 
-export default NavContext
+export default NavContext;

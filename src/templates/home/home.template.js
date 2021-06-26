@@ -1,22 +1,15 @@
-import React, {useState, useEffect, useContext} from "react"
-import {Helmet} from "react-helmet"
-import {graphql} from "gatsby"
-//import Layout from "../../layout/layout.component"
-import HomeProfile from "../../components/profiles/home-profile/home-profile.component"
-import EpisodesList from "../../components/episodes-list/episodes-list.component"
+import React from "react";
+import { Helmet } from "react-helmet";
+import { graphql } from "gatsby";
 
-import Container from "react-bootstrap/Container"
-import config from "../../../data/SiteConfig"
-import "./main.scss"
-import Player from "../../components/player/player.component"
-import PlayerContext from "../../components/player/player.context"
-import ShowsLister from "../../components/shows-lister/shows-lister.component"
-import HomeEpisodesLister from "../../components/episodes-lister-home/episodes-lister-home"
-import MenuBarContext from "../../components/menu-bar/menu-bar.context"
+import config from "../../../data/SiteConfig";
+import "./main.scss";
+import ShowsLister from "../../components/shows-lister/shows-lister.component";
+import HomeEpisodesLister from "../../components/episodes-lister-home/episodes-lister-home";
 
-const Home = ({data}) => {
-    const episodes = data.allMarkdownRemark.edges
-    /*
+const Home = ({ data }) => {
+  const episodes = data.allMarkdownRemark.edges;
+  /*
     const [audio, setAudio] = useState()
     const playAudio = (event, data) => {
       event.preventDefault()
@@ -27,54 +20,53 @@ const Home = ({data}) => {
     console.log("audio path", audioFolderPath + audio)
     */
 
-    const shows = []
-    //const shows = data.allMarkdownRemark.edges.node.frontmatter.shows
+  const shows = [];
+  // const shows = data.allMarkdownRemark.edges.node.frontmatter.shows
 
-    episodes.forEach((episode) => {
-      if (shows.length === 0) {
-        console.log("New show!")
+  episodes.forEach((episode) => {
+    if (shows.length === 0) {
+      console.log("New show!");
+      shows.push({
+        show: episode.node.frontmatter.show,
+        cover: episode.node.frontmatter.cover,
+      });
+      // episode.node.frontmattter.sho
+      console.log("shows", shows);
+    }
+
+    shows.forEach((existingShow) => {
+      const existingShowTitle = existingShow.show;
+      const newShowTitle = episode.node.frontmatter.show;
+      console.log("comparing ", existingShow, " to", newShowTitle);
+
+      if (existingShowTitle !== newShowTitle) {
+        console.log("added a new show", newShowTitle);
         shows.push({
           show: episode.node.frontmatter.show,
-          cover: episode.node.frontmatter.cover
-        })
-        //episode.node.frontmattter.sho
-        console.log("shows", shows)
+          cover: episode.node.frontmatter.cover,
+        });
       }
-      
-      shows.forEach((existingShow) => {
-        const existingShowTitle = existingShow.show
-        const newShowTitle = episode.node.frontmatter.show
-        console.log("comparing ", existingShow, " to", newShowTitle)
 
-        if (existingShowTitle !=  newShowTitle) {
-          console.log("added a new show", newShowTitle)
-          shows.push({
-            show: episode.node.frontmatter.show,
-            cover: episode.node.frontmatter.cover
-          })
-        }
+      console.log("shows", shows);
+    });
+  });
 
-        console.log("shows", shows)
-      })
-    })
+  return (
+    <div>
+      <Helmet>
+        <title>{config.siteTitle}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      </Helmet>
+      <div className="wrapper">
+        <ShowsLister shows={shows} />
+        <HomeEpisodesLister episodes={episodes} />
+      </div>
 
+    </div>
+  );
+};
 
-    return (
-        <div>
-          <Helmet>
-            <title>{config.siteTitle}</title>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-          </Helmet>
-          <div className="wrapper">
-            <ShowsLister shows={shows} />
-            <HomeEpisodesLister episodes={episodes} />
-          </div>
-
-        </div>
-    )
-}
-
-export default Home
+export default Home;
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`

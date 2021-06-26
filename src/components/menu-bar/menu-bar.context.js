@@ -1,5 +1,5 @@
-import React from "react"
+import React from "react";
 
-const MenuBarContext = React.createContext("home")
+const MenuBarContext = React.createContext("home");
 
-export default MenuBarContext
+export default MenuBarContext;

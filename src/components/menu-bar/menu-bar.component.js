@@ -1,29 +1,29 @@
-import React from "react"
-import { useContext } from "react"
-import MenuBarContext from "./menu-bar.context"
+import React, { useContext } from "react";
 
-import "./menu-bar.scss"
+import MenuBarContext from "./menu-bar.context";
+
+import "./menu-bar.scss";
 
 const MenuBar = () => {
-  const active = useContext(MenuBarContext)
+  const active = useContext(MenuBarContext);
   return (
     <div className={`menu-bar ${active.active}`}>
       <div className="inner">
         <a href="/" className="one-half">
           <div className="action home">
-            <i class="fa fa-home"></i>
+            <i className="fa fa-home" />
             <div>Home</div>
           </div>
         </a>
         <a href="/about" className="one-half">
           <div className="action settings">
-            <i class="fa fa-gear"></i>
+            <i className="fa fa-gear" />
             <div>Settings</div>
           </div>
         </a>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MenuBar
+export default MenuBar;
