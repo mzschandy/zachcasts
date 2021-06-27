@@ -2,7 +2,7 @@
     height: 75px;
     width: 100%;
     position: relative;
-    
+    //background-color: red;
 
     .inner {
         display: flex;
@@ -11,7 +11,6 @@
         //background-color: red;
 
         align-items: center;
-        margin: 0 1em;
 
     }
 
@@ -34,9 +33,6 @@
    }
 }
 
-@media screen and (min-width: 749px) {
-    #navigation {
-        background-color: #fff !important;
+@media screen and (max-width: 749px) {
 
-    }
 }

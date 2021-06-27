@@ -30,15 +30,14 @@
     }
 
     .fa {
-        font-size: 2em;
+        font-size: 3em;
         margin: .5em auto 0;
-        cursor: pointer;
+        
     }
 
     .episode-info {
         display: flex;
         flex-direction: column;
-        flex: 80%;
     }
 
     .data {
@@ -62,7 +61,7 @@
         font-size: 13px;
     }
     .title {
-        //font-weight: 750;
+        font-weight: 750;
         //font-size: 14px;
     }
 
@@ -92,17 +91,17 @@
             margin-top: .5em;
 
             .play-button {
-                border: 1px solid #F5F5F5;
+                border: 1px solid grey;
             }
         }
 
         .date {
             margin-right: 5px;
-            font-size: 10px;
+            font-size: 8px;
         }
 
         .time {
-            font-size: 10px;
+            font-size: 8px;
         }
 
         .fa {

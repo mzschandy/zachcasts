@@ -9,13 +9,11 @@
 
   .header {
     margin: 1em 0 0 0;
-    font-size: 1.8rem;
-    font-weight: 800;
   }
 
   .episode {
     display: flex;
-    padding: 1em 1em 1em 0;
+    padding: 1em;
 
     .cover {
       width: 68px;
@@ -52,8 +50,6 @@
   .episodes-wrapper.home {
     .header {
       margin: 1em 1em 0 1em;
-      font-size: 1rem;
-      font-weight: 600;
     }
     .episode {
       padding: .5em 1em;

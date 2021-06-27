@@ -1,10 +1,10 @@
 .menu-bar {
-  display: none;
+  //display: none;
   position: fixed;
   z-index: 50;
   bottom: 0;
   width: 100%;
-  background-color: #fff;
+  background-color: #F5F5F5;
   height: 58px;
 
   .inner {
@@ -37,7 +37,7 @@
   .one-half {
     flex: 50%;
     display: flex;
-    padding-top: 1em;
+    padding-top: .5em;
   }
 }
 

@@ -1,22 +1,12 @@
-import React, { useContext } from "react";
-import { Link } from "gatsby";
-import PlayerContext from "../player/player.context";
+import React from "react"
+import {Link} from "gatsby"
 
 import "./show.scss";
 
-const EpisodesLister = ({ episodes }) => {
-  // const episodesList = [];
-  // const []
-  const player = useContext(PlayerContext);
-  console.log(episodes);
+const EpisodesLister = ({episodes}) => {
+  const episodesList = []
 
-  const setPlayer = (audio, title) => {
-    player.setAudio(audio);
-    //player.setImage(image);
-    player.setTitle(title);
-  };
-
-  const playingToggle = player.playing;
+  console.log(episodes)
   return (
     <div className="wrapper-outer">
       <div className="episodes-wrapper">
@@ -41,7 +31,7 @@ const EpisodesLister = ({ episodes }) => {
             {episode.description}
             </div>
           </div>
-          <i onClick={() => setPlayer(episode.audioPath, episode.title)} className="fa fa-play-circle-o" />
+          <i className="fa fa-play" />
         </div>
       </div>
     </div>
