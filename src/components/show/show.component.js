@@ -55,7 +55,7 @@ const Show = ({ showEdges, showName }) => {
           return (
             <div className="show-wrapper" style={{ backgroundColor: data }}>
               {background.setBackground(data)}
-              {background.setIsHome(false)}
+              {/* background.setIsHome(false) */}
               {console.log("Color data >", data)}
               {console.log("img source > ", img)}
               <div className="show">

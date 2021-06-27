@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useContext } from "react";
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 
@@ -27,7 +28,7 @@ export default function Player() {
           src={audioFolderPath + player.audio}
           onPlay={() => console.log("onPlay")}
           customControlsSection={[
-            <div className="playing-cover"><img src={imageFolderPath + player.image} alt="cover" /></div>,
+            <div className="playing-cover"><img src={player.image} /></div>,
             <div className="playing-details">
               <div className="playing-title">{player.title}</div>
             </div>,

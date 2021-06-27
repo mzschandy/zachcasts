@@ -1,28 +1,27 @@
-import { graphql } from "gatsby"
-import React from "react"
-import _ from "lodash";
 import { Link } from "gatsby";
+import React from "react";
+import _ from "lodash";
 
-import "./shows.scss"
+import "./shows.scss";
 
-const ShowsLister = ({shows}) => {
-  console.log("shows", shows)
-  const imgPath = "https://s3.us-east-2.amazonaws.com/zachcasts/"
-  
+const ShowsLister = ({ shows }) => {
+  console.log("shows", shows);
+  const imgPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
+
   return (
     <div className="shows-lister">
-      <div className="bg-splash"></div>
+      <div className="bg-splash" />
       <div className="header">Shows</div>
       <div className="lister">
         {shows.map((show) => (
           <Link key={show.show} to={`/shows/${_.kebabCase(show.show)}`} className="show-lister-item">
-            <div className="cover"><img src={imgPath+show.cover}></img></div>
+            <div className="cover"><img src={imgPath + show.cover} alt="cover" /></div>
             <div className="name">{show.show}</div>
           </Link>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ShowsLister
+export default ShowsLister;

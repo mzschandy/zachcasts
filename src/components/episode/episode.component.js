@@ -15,6 +15,7 @@ const Episode = ({ episodeNode }) => {
           {({ data }) => (
             <div className="show-wrapper" style={{ backgroundColor: data }}>
               {background.setBackground("#fff")}
+              {/* background.setIsHome(false) */}
               <div className="show">
                 <div className="cover">
                   <div className="fake-img">

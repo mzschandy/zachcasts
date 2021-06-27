@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Nav from 'react-bootstrap/Nav';
-import { Link, navigate } from 'gatsby';
+import { Link } from 'gatsby';
 // import Logo from '../../../static/logos/pulse.png';
 import NavContext from './nav.context';
 
@@ -13,11 +13,6 @@ export default function Navigation() {
   return (
     <div id="navigation" style={{ backgroundColor: nav.background }}>
       <div className="inner">
-        {!nav.isHome && (
-        <div className="back">
-          <i onClick={() => navigate(-1)} className="fa fa-arrow-left" />
-        </div>
-        )}
         <div className="logo">
           {/* <img src={Logo} alt="logo"/> */}
         </div>

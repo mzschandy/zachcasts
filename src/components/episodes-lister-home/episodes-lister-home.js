@@ -4,10 +4,12 @@ import PlayerContext from '../player/player.context';
 
 import './episodes.scss';
 import MenuBarContext from '../menu-bar/menu-bar.context';
+// import NavContext from "../nav/nav.context"
 
 const HomeEpisodesLister = ({ episodes }) => {
   const player = useContext(PlayerContext);
   const active = useContext(MenuBarContext);
+  // const background = useContext(NavContext);
 
   const getEpisodeList = () => {
     const episodeList = [];
@@ -37,9 +39,11 @@ const HomeEpisodesLister = ({ episodes }) => {
 
   const episodeList = getEpisodeList();
   const imgPath = 'https://s3.us-east-2.amazonaws.com/zachcasts/';
+
   return (
     <div className="episodes-wrapper home">
       {active.setActive('home')}
+      {/* background.setBackground("#fff") */}
       <div className="header">Recent Episodes</div>
       <div className="lister">
         {episodeList.map((episode) => (
