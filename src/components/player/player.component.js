@@ -11,13 +11,13 @@ export default function Player() {
   const player = useContext(PlayerContext);
   const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
 
-  const imageFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
+  const ImageCover = "https://zachcasts.s3.us-east-2.amazonaws.com/blades%26bending_cover.png";
 
   return (
     <>
       <div className="player" id="player">
         <div className="currently-playing">
-          <div className="playing-cover"><img src={imageFolderPath} alt="cover" /></div>
+          <div className="playing-cover"><img src={ImageCover} /></div>
           <div className="playing-details">
             <div className="playing-title">Ep. 1: Missing (Book 1 - Chapter 1)</div>
             <div className="playing-source">Blades and Bending</div>
@@ -26,9 +26,9 @@ export default function Player() {
         <AudioPlayer
           layout="stacked-reverse"
           src={audioFolderPath + player.audio}
-          onPlay={() => console.log("onPlay")}
+          onPlay={(event) => console.log("onPlay")}
           customControlsSection={[
-            <div className="playing-cover"><img src={player.image} /></div>,
+            <div className="playing-cover"><img src={ImageCover} /></div>,
             <div className="playing-details">
               <div className="playing-title">{player.title}</div>
             </div>,

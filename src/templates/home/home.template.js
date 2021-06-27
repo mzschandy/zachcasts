@@ -1,11 +1,17 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import { graphql } from "gatsby";
+import React, {useState, useEffect} from "react"
+import {Helmet} from "react-helmet"
+import {graphql} from "gatsby"
+//import Layout from "../../layout/layout.component"
+import HomeProfile from "../../components/profiles/home-profile/home-profile.component"
+import EpisodesList from "../../components/episodes-list/episodes-list.component"
 
-import config from "../../../data/SiteConfig";
-import "./main.scss";
-import ShowsLister from "../../components/shows-lister/shows-lister.component";
-import HomeEpisodesLister from "../../components/episodes-lister-home/episodes-lister-home";
+import Container from "react-bootstrap/Container"
+import config from "../../../data/SiteConfig"
+import "./main.scss"
+import Player from "../../components/player/player.component"
+import PlayerContext from "../../components/player/player.context"
+import ShowsLister from "../../components/shows-lister/shows-lister.component"
+import HomeEpisodesLister from "../../components/episodes-lister-home/episodes-lister-home"
 
 const Home = ({ data }) => {
   const episodes = data.allMarkdownRemark.edges;
@@ -47,24 +53,20 @@ const Home = ({ data }) => {
         });
       }
 
-      console.log("shows", shows);
-    });
-  });
-
-  return (
-    <div>
-      <Helmet>
-        <title>{config.siteTitle}</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-      </Helmet>
-      <div className="wrapper">
-        <ShowsLister shows={shows} />
-        <HomeEpisodesLister episodes={episodes} />
-      </div>
-
-    </div>
-  );
-};
+    return (
+        <div>
+          <Helmet>
+            <title>{config.siteTitle}</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+          </Helmet>
+          <div className="wrapper">
+            <ShowsLister shows={shows} />
+            <HomeEpisodesLister episodes={episodes} />
+          </div>
+          {/*<Player mp3={audioFolderPath + audio} /> */}
+        </div>
+    )
+}
 
 export default Home;
 

@@ -5,12 +5,12 @@ import PlayerContext from "./player.context";
 export const PlayerProvider = ({ children }) => {
   const [audio, setAudio] = useState();
   // const [playing, setPlaying] = useState();
-  const [image, setImage] = useState();
+  // const [image, setImage] = useState();
   const [title, setTitle] = useState();
 
   return (
     <PlayerContext.Provider value={{
-      audio, setAudio, title, setTitle, image, setImage,
+      audio, setAudio, title, setTitle,
     }}
     >
       {children}
