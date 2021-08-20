@@ -1,33 +1,34 @@
 /* eslint-disable react/jsx-filename-extension */
-import React from "react"
-import Container from "react-bootstrap/Container"
-import Nav from 'react-bootstrap/Nav'
-import {Link} from 'gatsby'
-import Logo from "../../../static/logos/pulse.png"
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Nav from 'react-bootstrap/Nav';
+import { Link } from 'gatsby';
+// import Logo from "../../../static/logos/pulse.png";
 
 import './navigation.scss';
 
 export default function Navigation() {
-    return (
-        <div id="navigation">
-            <Container className="inner">
-                <div className="logo">
-                    {/*<img src={Logo} alt="logo"/>*/}
-                </div>
-                <Nav>
-                    <div>
-                        <Link to="/" className="site-title">Zachcasts</Link>beta
-                    </div>
-                </Nav>
-            </Container>
-        </div>
-        <Nav>
-          <div>
-            <Link to="/" className="site-title">Zachcasts</Link>
-            beta
+  return (
+    <>
+      <div id="navigation">
+        <Container className="inner">
+          <div className="logo">
+            {/* <img src={Logo} alt="logo"/> */}
           </div>
-        </Nav>
+          <Nav>
+            <div>
+              <Link to="/" className="site-title">Zachcasts</Link>
+              beta
+            </div>
+          </Nav>
+        </Container>
       </div>
-    </div>
+      <Nav>
+        <div>
+          <Link to="/" className="site-title">Zachcasts</Link>
+          beta
+        </div>
+      </Nav>
+    </>
   );
 }

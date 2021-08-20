@@ -1,12 +1,12 @@
-import React from "react"
-import {Link} from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
 import "./show.scss";
 
-const EpisodesLister = ({episodes}) => {
-  const episodesList = []
+const EpisodesLister = ({ episodes }) => {
+  // const episodesList = [];
 
-  console.log(episodes)
+  console.log(episodes);
   return (
     <div className="wrapper-outer">
       <div className="episodes-wrapper">
@@ -24,14 +24,9 @@ const EpisodesLister = ({episodes}) => {
                   {episode.description}
                 </div>
               </div>
-              <i onClick={() => setPlayer(episode.audioPath, episode.title, imgPath + episode.cover)} className="fa fa-play-circle-o" />
+              <i className="fa fa-play-circle-o" />
             </div>
-            <Link to={episode.path} className="title">{episode.title}</Link>
-            <div className="description">
-            {episode.description}
-            </div>
-          </div>
-          <i className="fa fa-play" />
+          ))}
         </div>
       </div>
     </div>
