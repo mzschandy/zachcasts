@@ -1,10 +1,10 @@
 .menu-bar {
-  //display: none;
+  display: none;
   position: fixed;
   z-index: 50;
   bottom: 0;
   width: 100%;
-  background-color: #F5F5F5;
+  background-color: #fff;
   height: 58px;
 
   .inner {
@@ -37,7 +37,7 @@
   .one-half {
     flex: 50%;
     display: flex;
-    padding-top: .5em;
+    padding-top: 1em;
   }
 }
 
@@ -45,5 +45,15 @@
 @media screen and (max-width: 749px) {
   .menu-bar {
     display: block;
+  }
+  .menu-bar.home {
+    .action.home {
+      color: #000;
+    }
+  }
+  .menu-bar.settings {
+    .action.settings {
+      color: #000;
+    }
   }
 }

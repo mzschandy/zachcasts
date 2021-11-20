@@ -1,13 +1,13 @@
 .show-wrapper {
   width: 100%;
-  background-color: gray;
+  background-color: #F5F5F5;
   display: flex;
   //filter: brightness(1.1);
   //margin-bottom: 10em;
 }
 
 .show {
-  max-width: 494px;
+  max-width: 1004px;
   margin: 1em auto;
   display: flex;
 
@@ -89,92 +89,89 @@
   }
 }
 
-//Episodes Lister
+//Episode
 .wrapper-outer {
-  max-width: 494px;
+  max-width: 1004px;
   margin: 0 auto;
 }
-.episodes-wrapper {
-  display: flex;
-  flex-direction: column;
 
-  .lister {
-    display: flex;
-    flex-direction: column;
+#podcast-episode {
+  .image-cover img{
+      width: 100px;
+      height: 100px;
   }
 
-  .header {
-    margin: 1em 0 0 0;
+  .profile-details {
+      .podcast-title {
+          font-size: 2em;
+          margin-top: -16px;
+      }
+      .podcast-author {
+          margin-top: 0;
+      }
   }
+}
 
-  .episode {
-    display: flex;
-    padding: 1em;
 
-    .cover {
-      width: 68px;
-      height: 68px;
-      background-color: grey;
-      align-self: center;
-
-      img {
-        width: 68px;
-        height: 68px;
-        align-self: center;
-      }
-      //flex: 20%;
-    }
-
-    .episode-info {
-      //flex: 60%;
-      display: flex;
-      flex-direction: column;
-
-      .release-info {
-        display: flex;
-        flex-direction: row;
-        font-size: 13px;
-      }
-
-      .description {
-        font-size: 12px;
-      }
-
-      .show-name {
-        display: none;
-      }
-    }
+.episode-meta { 
+  padding: 0 2em 2em 2em;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.episode-header {
+  .play-button {
+      //display: flex;
+      border: 1px solid grey;
   }
+}
+.episode-notes {
+  margin: 2em auto 0;
+  max-width: 1004px;
 }
 
 @media screen and (max-width: 749px) {
-  .episodes-wrapper {
-    .header {
-      margin: 1em 1em 0 1em;
-    }
-    .episode {
-      padding: .5em 1em;
-      .cover {
-        width: 40px;
-        height: 40px;
-
-        img {
-          width: 40px;
-          height: 40px;
-        }
-      }
-
-      .episode-info {
-        .show-name{
-          display: block;
-          font-size: 12px;
-        }
-      }
-      i {
-        font-size: 2em;
-        align-self: center;
-      }
-    }
+  .notes-inner {
+    padding: .5em 1em;
   }
+
+  .episode-notes {
+    margin-top: 1em;
+  }
+
+  #podcast-episode {
+    .hidden {
+        width: 50px;
+        height: 50px;
+    }
+
+    .profile-details {
+        .podcast-title {
+            font-size: 1rem;
+            margin-top: 0;
+        }
+        .podcast-author {
+            font-size: .7rem;
+        }
+        .podcast-date-length {
+            color: grey;
+            //font-size: 13px;
+        }
+    }
+
+    .profile {
+        border-bottom: none;
+        margin-top: 0;
+    }
 }
 
+.episode-meta {
+    padding: 0 1em .5em 1em;
+    
+}
+
+.episode-header {
+    .episode-title {
+        font-size: 1.5rem;
+    }
+}
+}

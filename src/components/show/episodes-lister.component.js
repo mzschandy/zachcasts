@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "gatsby";
+import PlayerContext from "../player/player.context";
 
 import "./show.scss";
 
 const EpisodesLister = ({ episodes }) => {
   // const episodesList = [];
-
+  // const []
+  const player = useContext(PlayerContext);
   console.log(episodes);
+
+  const setPlayer = (audio, title, image) => {
+    player.setAudio(audio);
+    player.setImage(image);
+    player.setTitle(title);
+  };
+
+  // const playingToggle = player.playing;
+  const imgPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
   return (
     <div className="wrapper-outer">
       <div className="episodes-wrapper">
@@ -24,7 +35,7 @@ const EpisodesLister = ({ episodes }) => {
                   {episode.description}
                 </div>
               </div>
-              <i className="fa fa-play-circle-o" />
+              <i onClick={() => setPlayer(episode.audioPath, episode.title, imgPath + episode.cover)} className="fa fa-play-circle-o" />
             </div>
           ))}
         </div>

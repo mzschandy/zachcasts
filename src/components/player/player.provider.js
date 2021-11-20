@@ -4,19 +4,13 @@ import PlayerContext from "./player.context";
 
 export const PlayerProvider = ({ children }) => {
   const [audio, setAudio] = useState();
-  // const [isPlaying, setIsPlaying] = useState(false);
-  const [status, setStatus] = useState(0);
-
-  // 0 = initial pause
-  // 1 = regular pause
-  // 2 = play
-
-  // const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
-  // console.log("audio path", audioFolderPath + audio
+  // const [playing, setPlaying] = useState();
+  const [image, setImage] = useState();
+  const [title, setTitle] = useState();
 
   return (
     <PlayerContext.Provider value={{
-      audio, setAudio, status, setStatus,
+      audio, setAudio, title, setTitle, image, setImage,
     }}
     >
       {children}

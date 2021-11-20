@@ -10,6 +10,7 @@ const ShowsLister = ({ shows }) => {
 
   return (
     <div className="shows-lister">
+      <div className="bg-splash" />
       <div className="header">Shows</div>
       <div className="lister">
         {shows.map((show) => (

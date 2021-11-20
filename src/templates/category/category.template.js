@@ -1,13 +1,13 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import { graphql } from "gatsby"
-//import Layout from "../../layout/layout.component"
-import EpisodesList from "../../components/episodes-list/episodes-list.component"
-import config from "../../../data/SiteConfig"
+import React from "react";
+import { Helmet } from "react-helmet";
+import { graphql } from "gatsby";
+// import Layout from "../../layout/layout.component"
+import EpisodesList from "../../components/episodes-list/episodes-list.component";
+import config from "../../../data/SiteConfig";
 
-export default function Category({pageContext, data}) {
-  const {category} = pageContext
-  const episodes = data.allMarkdownRemark.edges
+export default function Category({ pageContext, data }) {
+  const { category } = pageContext;
+  const episodes = data.allMarkdownRemark.edges;
 
   return (
     <div>
@@ -18,7 +18,7 @@ export default function Category({pageContext, data}) {
         <EpisodesList episodes={episodes} />
       </div>
     </div>
-  )
+  );
 }
 /*
 export const pageQuery = graphql`
@@ -49,4 +49,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;*/
+`; */

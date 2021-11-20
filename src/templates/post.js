@@ -2,7 +2,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
-import Layout from "../layout";
+// import Layout from "../layout";
 
 import Footer from "../components/Footer/Footer";
 import config from "../../data/SiteConfig";
@@ -18,20 +18,18 @@ export default function PostTemplate({ data, pageContext }) {
   }
 
   return (
-    <Layout>
+    <div>
+      <Helmet>
+        <title>{`${post.title} | ${config.siteTitle}`}</title>
+      </Helmet>
       <div>
-        <Helmet>
-          <title>{`${post.title} | ${config.siteTitle}`}</title>
-        </Helmet>
-        <div>
-          <h1>{post.title}</h1>
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
-          <div className="post-meta" />
-          <Footer config={config} />
-        </div>
+        <h1>{post.title}</h1>
+        {/* eslint-disable-next-line react/no-danger */}
+        <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+        <div className="post-meta" />
+        <Footer config={config} />
       </div>
-    </Layout>
+    </div>
   );
 }
 
