@@ -7,7 +7,7 @@ import config from "../../data/SiteConfig";
 import Player from "../components/player/player.component";
 import { PlayerProvider } from "../components/player/player.provider";
 import MenuBar from "../components/menu-bar/menu-bar.component";
-import NavProvider from "../components/nav/nav.provider";
+import { NavProvider } from "../components/nav/nav.provider";
 
 import "./layout.scss";
 import { MenuBarProvider } from "../components/menu-bar/menu-bar.provider";
