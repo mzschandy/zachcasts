@@ -58,14 +58,7 @@ export default function Player() {
 
   return (
     <>
-      <div className="player" id="player">
-        <div className="currently-playing">
-          <div className="playing-cover"><img src={ImageCover} /></div>
-          <div className="playing-details">
-            <div className="playing-title">This is an episode name</div>
-            <div className="playing-source">Podcast</div>
-          </div>
-        </div>
+      <div className="fixed z-30 bottom-0 left-0 w-full" id="player">
         <AudioPlayer
           ref={playerRef}
           src={audioFolderPath + player.audio}
