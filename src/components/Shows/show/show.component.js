@@ -7,6 +7,8 @@ import EpisodesLister from "./episodes-lister.component";
 // import ColorThief from "../../../node_modules/colorthief/dist/color-thief";
 
 import "./show.scss";
+import EpisodeLister from "../../Episodes/episode-list/episodes-list.component";
+import EpisodeItem from "../../Episodes/episode-item/episode-item.component";
 
 const Loading = () => <div>Loading...</div>;
 const Show = ({ showEdges, showName }) => {
@@ -26,7 +28,7 @@ const Show = ({ showEdges, showName }) => {
       title: showEdge.node.frontmatter.title,
       date: showEdge.node.frontmatter.date,
       description: showEdge.node.frontmatter.shortDescription,
-      audioPath: showEdge.node.frontmatter.audioPath,
+      audio: showEdge.node.frontmatter.audioPath,
       showLength: showEdge.node.frontmatter.showLength,
     });
   });
@@ -38,38 +40,26 @@ const Show = ({ showEdges, showName }) => {
 
   console.log("showlist", showList);
   return (
-    <div>
-      <Color src="https://s3.us-east-2.amazonaws.com/zachcasts/blades%26bending_cover.png" crossOrigin="anonymous" format="hex">
-        {({ data, loading }) => {
-          if (loading) return <Loading />;
-          return (
-            <div className="show-wrapper" style={{ backgroundColor: data }}>
-              <div className="show">
-                <div className="cover">
-                  <div className="fake-img">
-                    <img id="showLogo" src={imgPath + coverImage} alt="logo" />
-                  </div>
-                  <div className="bio">
-                    <div className="name">{showName}</div>
-                    <div className="author">by Podcast author</div>
-                  </div>
-                </div>
-                <div className="show-info">
-                  <div className="bio">
-                    <div className="name">{showName}</div>
-                    <div className="author">by Zach Schandorf-Lartey</div>
+    <div className="flex flex-row mt-4">
+      <div className="" style={{ flex: "40%" }}>
+        <div className="flex flex-col">
+          <div className="mt-4">
+            <img id="showLogo" className="w-4/5 rounded-sm" src={imgPath + coverImage} alt="logo" />
+          </div>
+          <div className="mt-4">
+            <div className="text-xl font-semibold">{showName}</div>
+            <div className="author">by Podcast author</div>
+          </div>
+          <div className="mt-4">This is a description lots oflorem text</div>
+        </div>
+      </div>
+      <div className="mt-4" style={{ flex: "60%" }}>
+        <div className="mb-4">All Episodes</div>
+        {showList.map((episode) => (
+          <EpisodeItem episode={episode} />
+        ))}
+      </div>
 
-                  </div>
-                  <div className="description">This is a description lots oflorem text</div>
-                </div>
-              </div>
-            </div>
-          );
-        }}
-
-      </Color>
-
-      <EpisodesLister episodes={showList} />
     </div>
   );
 };

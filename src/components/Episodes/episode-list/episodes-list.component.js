@@ -20,7 +20,7 @@ const EpisodeLister = ({ episodes }) => {
         title: episode.node.frontmatter.title,
         audio: episode.node.frontmatter.audioPath,
         date: episode.node.fields.date,
-        exerpt: episode.node.frontmatter.shortDescription,
+        description: episode.node.frontmatter.shortDescription,
         showLength: episode.node.frontmatter.showLength,
         timeToRead: episode.node.timeToRead,
       });

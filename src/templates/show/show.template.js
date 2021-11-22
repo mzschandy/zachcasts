@@ -9,7 +9,9 @@ const ShowTemplate = ({ pageContext, data }) => {
   const showEdges = data.allMarkdownRemark.edges;
   return (
     <>
-      <Show showEdges={showEdges} showName={show} />
+      <div className="contain">
+        <Show showEdges={showEdges} showName={show} />
+      </div>
     </>
   );
 };
