@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from "react";
 import { Helmet } from "react-helmet";
-import Navigation from "../components/nav/navigation.component";
+import Navigation from "../components/layout/nav/navigation.component";
 import config from "../../data/SiteConfig";
 
 import Player from "../components/player/player.component";
 import { PlayerProvider } from "../components/player/player.provider";
-import MenuBar from "../components/menu-bar/menu-bar.component";
+// import MenuBar from "../components/menu-bar/menu-bar.component";
 
 export default ({ children }) => (
   <PlayerProvider>
@@ -17,7 +17,7 @@ export default ({ children }) => (
     </Helmet>
     <Navigation />
     {children}
-    <MenuBar />
+    {/* <MenuBar /> */}
     <Player />
   </PlayerProvider>
 );

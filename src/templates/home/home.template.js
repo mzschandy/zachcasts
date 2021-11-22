@@ -10,7 +10,7 @@ import config from "../../../data/SiteConfig";
 import "./main.scss";
 // import Player from "../../components/player/player.component"
 // import PlayerContext from "../../components/player/player.context"
-import ShowsLister from "../../components/shows-lister/shows-lister.component";
+import ShowsLister from "../../components/Shows/shows-lister/shows-lister.component";
 import HomeEpisodesLister from "../../components/episodes-lister-home/episodes-lister-home";
 
 const Home = ({ data }) => {
@@ -55,7 +55,7 @@ const Home = ({ data }) => {
     });
   });
   return (
-    <div>
+    <>
       <Helmet>
         <title>{config.siteTitle}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -65,7 +65,7 @@ const Home = ({ data }) => {
         <HomeEpisodesLister episodes={episodes} />
       </div>
       {/* <Player mp3={audioFolderPath + audio} /> */}
-    </div>
+    </>
   );
 };
 
