@@ -11,7 +11,7 @@ import "./main.scss";
 // import Player from "../../components/player/player.component"
 // import PlayerContext from "../../components/player/player.context"
 import ShowsLister from "../../components/Shows/shows-lister/shows-lister.component";
-import HomeEpisodesLister from "../../components/episodes-lister-home/episodes-lister-home";
+import HomeEpisodesLister from "../../components/Episodes/episodes-lister-home/episodes-lister-home";
 
 const Home = ({ data }) => {
   const episodes = data.allMarkdownRemark.edges;
