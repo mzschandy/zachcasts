@@ -3,8 +3,9 @@ import React, {
 } from "react";
 import { Link } from "gatsby";
 import PlayerContext from "../../player/player.context";
+import PlayButton from "../play-button/play-button.component";
 
-import "../../episodes-lister-home/episodes.scss";
+// import "../../episodes-lister-home/episodes.scss";
 
 const EpisodeItem = ({ episode }) => {
   const player = useContext(PlayerContext);
@@ -12,6 +13,7 @@ const EpisodeItem = ({ episode }) => {
   const iconRef = useRef(null);
   const imgPath = 'https://s3.us-east-2.amazonaws.com/zachcasts/';
 
+  /*
   const setPlayer = (audio) => {
     console.log("current audio is", player.audio);
     console.log("clicked audio is", audio);
@@ -67,31 +69,39 @@ const EpisodeItem = ({ episode }) => {
       // console.log("--- Status is Currently 1 / PAUSED ---");
     }
   });
+  */
+
+  // const epInfo = [episode.audio, episode.title, imgPath + episode.cover];
 
   return (
     <>
-      <div key={episode.title} className="episode">
-        <div className="cover"><img src={imgPath + episode.cover} alt="Podcast cover" /></div>
-        <div className="episode-info">
-          <div className="release-info">
-            <div className="date">{episode.date}</div>
-            <div className="time">{episode.showLength}</div>
+      <div key={episode.title} className="flex w-full border-b border-gray-500 mb-2">
+        <div className="cover w-16 h-16 self-center rounded-sm"><img className="rounded-sm" src={imgPath + episode.cover} alt="Podcast cover" /></div>
+        <div className="ml-4 flex flex-col" style={{ flex: "60%" }}>
+          <Link to={episode.path} className="">{episode.title}</Link>
+          <div className="flex">
+            <div className="text-xs mr-2">{episode.date}</div>
+            <div className="text-xs">{episode.showLength}</div>
           </div>
-          <Link to={episode.path} className="title">{episode.title}</Link>
-          <div className="description">{episode.exerpt}</div>
-          <div className="show-name">{episode.show}</div>
         </div>
+        <PlayButton
+          mp3={episode.audio}
+          title={episode.title}
+          imgPathCover={imgPath + episode.cover}
+        />
         {/* player.isPlaying ? <i onClick={() => setPlayer(episode.audio,
             episode.title, imgPath + episode.cover)}
             className={`fa fa-${icon}-circle-o`} />
               : <i onClick={() => setPlayer(episode.audio, episode.title, imgPath + episode.cover)}
-              className={`fa fa-${icon}-circle-o`} /> */}
+
+       className={`fa fa-${icon}-circle-o`} /> */}
+        {/* }
         <i
           id={episode.title}
           onClick={() => setPlayer(episode.audio, episode.title, imgPath + episode.cover)}
           className={`fa fa-${icon}-circle-o`}
           ref={iconRef}
-        />
+      /> */}
       </div>
     </>
   );

@@ -16,7 +16,7 @@ module.exports = {
       description: config.siteDescription,
       image_url: `${urljoin(
         config.siteUrl,
-        config.pathPrefix
+        config.pathPrefix,
       )}/logos/logo-512.png`,
       copyright: config.copyright,
     },
@@ -71,6 +71,7 @@ module.exports = {
     "gatsby-plugin-catch-links",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sass",
+    "gatsby-plugin-postcss",
     "gatsby-plugin-layout",
     {
       resolve: "gatsby-plugin-manifest",
@@ -147,13 +148,18 @@ module.exports = {
                 custom_elements: [
                   { "content:encoded": edge.node.html },
                   { author: config.userEmail },
-                  {'enclosure': [
-                    {_attr: {
-                      url: config.s3bucket + edge.node.frontmatter.audioPath,
-                      length: Number(edge.node.frontmatter.fileSize) * 1000 * 1000, // megabytes to bytes
-                      type: "audio/mpeg",
-                    }},
-                  ]},
+                  {
+                    enclosure: [
+                      {
+                        _attr: {
+                          url: config.s3bucket + edge.node.frontmatter.audioPath,
+                          length: Number(edge.node.frontmatter.fileSize) * 1000 * 1000,
+                          // megabytes to bytes
+                          type: "audio/mpeg",
+                        },
+                      },
+                    ],
+                  },
                 ],
               }));
             },

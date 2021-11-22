@@ -12,8 +12,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const fileNode = getNode(node.parent);
     const parsedFilePath = path.parse(fileNode.relativePath);
     if (
-      Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
-      Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
+      Object.prototype.hasOwnProperty.call(node, "frontmatter")
+      && Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
     ) {
       slug = `/${_.kebabCase(node.frontmatter.title)}`;
     } else if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
@@ -25,12 +25,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
 
     if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
-      if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug"))
-        slug = `/${_.kebabCase(node.frontmatter.slug)}`;
+      if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug")) { slug = `/${_.kebabCase(node.frontmatter.slug)}`; }
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
         const date = moment(node.frontmatter.date, siteConfig.dateFromFormat);
-        if (!date.isValid)
-          console.warn(`WARNING: Invalid date.`, node.frontmatter);
+        if (!date.isValid) { console.warn(`WARNING: Invalid date.`, node.frontmatter); }
 
         createNodeField({ node, name: "date", value: date.toISOString() });
       }
@@ -43,11 +41,11 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const postPage = path.resolve("src/templates/episode/episode.template.js");
   const tagPage = path.resolve("src/templates/tag/tag.template.js");
-  const showPage = path.resolve("src/templates/show/show.template.js")
-  //const categoryPage = path.resolve("src/templates/category/category.template.js");
-  const homePage = path.resolve("./src/templates/home/home.template.js")
-  //const listingPage = path.resolve("./src/templates/listing.jsx");
-  //const landingPage = path.resolve("./src/templates/landing.jsx");
+  const showPage = path.resolve("src/templates/show/show.template.js");
+  // const categoryPage = path.resolve("src/templates/category/category.template.js");
+  const homePage = path.resolve("./src/templates/home/home.template.js");
+  // const listingPage = path.resolve("./src/templates/listing.jsx");
+  // const landingPage = path.resolve("./src/templates/landing.jsx");
 
   // Get a full list of markdown posts
   const markdownQueryResult = await graphql(`
@@ -79,7 +77,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const tagSet = new Set();
-  //const categorySet = new Set();
+  // const categorySet = new Set();
   const showSet = new Set();
 
   const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
@@ -88,12 +86,12 @@ exports.createPages = async ({ graphql, actions }) => {
   postsEdges.sort((postA, postB) => {
     const dateA = moment(
       postA.node.frontmatter.date,
-      siteConfig.dateFromFormat
+      siteConfig.dateFromFormat,
     );
 
     const dateB = moment(
       postB.node.frontmatter.date,
-      siteConfig.dateFromFormat
+      siteConfig.dateFromFormat,
     );
 
     if (dateA.isBefore(dateB)) return 1;
@@ -130,15 +128,15 @@ exports.createPages = async ({ graphql, actions }) => {
   // Post page creating
   postsEdges.forEach((edge, index) => {
     // Generate a list of tags
-    
+
     if (edge.node.frontmatter.tags) {
       edge.node.frontmatter.tags.forEach((tag) => {
         tagSet.add(tag);
       });
-    } 
+    }
 
     // Generate a list of categories
-    
+
     if (edge.node.frontmatter.show) {
       showSet.add(edge.node.frontmatter.show);
     }
@@ -166,7 +164,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   //  Create tag pages
-  
+
   tagSet.forEach((tag) => {
     createPage({
       path: `/tags/${_.kebabCase(tag)}/`,
@@ -174,10 +172,9 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { tag },
     });
   });
-  
 
   // Create category pages
-  
+
   showSet.forEach((show) => {
     createPage({
       path: `/shows/${_.kebabCase(show)}/`,
@@ -185,5 +182,4 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { show },
     });
   });
-  
 };
