@@ -1,10 +1,10 @@
-/* eslint-disable react/jsx-filename-extension */
-import React, { /* useContext */ } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 // import Layout from "../../layout/layout.component"
 // import PlayerContext from "../../components/player/player.context";
-import Episode from "../../components/episode/episode.component";
+import Episode from "../../components/Episodes/episode/episode.component";
+
 import config from "../../../data/SiteConfig";
 import "./episode.scss";
 
@@ -19,6 +19,7 @@ export default function EpisodeTemplate({ data, pageContext }) {
   }
 
   // const audio = episode.audioPath;
+
   return (
     <div>
       <Helmet>

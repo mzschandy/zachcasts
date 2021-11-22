@@ -3,7 +3,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 // import Layout from "../../layout/layout.component"
-import EpisodesList from "../../components/episodes-list/episodes-list.component";
+import EpisodesList from "../../components/Episodes/episode-list/episodes-list.component";
 
 import config from "../../../data/SiteConfig";
 

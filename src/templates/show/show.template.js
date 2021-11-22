@@ -3,7 +3,7 @@ import React from "react";
 // import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 // import config from "../../../data/SiteConfig";
-import Show from "../../components/show/show.component";
+import Show from "../../components/Shows/show/show.component";
 
 const ShowTemplate = ({ pageContext, data }) => {
   const { show } = pageContext;

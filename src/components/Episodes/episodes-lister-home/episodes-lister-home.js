@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
-import PlayerContext from '../player/player.context';
+import PlayerContext from "../../player/player.context";
 
 import './episodes.scss';
 import MenuBarContext from '../menu-bar/menu-bar.context';

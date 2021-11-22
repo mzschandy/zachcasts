@@ -1,20 +1,19 @@
 /* eslint-disable react/jsx-filename-extension */
-
 import React from "react";
 import { Helmet } from "react-helmet";
 // import Layout from "../layout";
-import AudioPlayer from "react-h5-audio-player";
 // import About from "../components/About/About";
 // import config from "../../data/SiteConfig";
-import ShowsLister from "../components/shows-lister/shows-lister.component";
+import AudioPlayer from "react-h5-audio-player";
+// import ShowsLister from "../components/shows-lister/shows-lister.component";
 
 import "react-h5-audio-player/lib/styles.css";
 // import Audio from "../../static/audio/"
 
 import "./test.scss";
-import HomeEpisodesLister from "../components/episodes-lister-home/episodes-lister-home";
-import MenuBar from "../components/menu-bar/menu-bar.component";
-import Show from "../components/show/show.component";
+// import HomeEpisodesLister from "../components/episodes-lister-home/episodes-lister-home";
+// import MenuBar from "../components/menu-bar/menu-bar.component";
+// import Show from "../components/show/show.component";
 
 function testPage() {
   const audio = "/audio/Wire.mp3";
@@ -27,11 +26,11 @@ function testPage() {
         </Helmet>
         <div>Test</div>
         <AudioPlayer src={audio} onPlay={() => console.log("onplay!")} />
-        <ShowsLister />
+        {/* <ShowsLister />
         <HomeEpisodesLister />
-        <MenuBar />
+        <MenuBar /> */}
       </div>
-      <Show />
+      {/* <Show /> */}
     </div>
   );
 }
