@@ -8,7 +8,7 @@ export default function Navigation() {
   return (
     <>
       <Nav className="h-14 border-b-2 border-purple-800 w-full fixed top-0 left-0 bg-white z-50">
-        <div className="contain">
+        <div className="contain flex self-center">
           <Link className="text-lg font-bold" to="/">Zachcasts</Link>
           beta
         </div>

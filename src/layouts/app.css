@@ -6,3 +6,20 @@
   width: 960px;
   margin: 0 auto;
 }
+
+a {
+ color: #000 !important;
+ text-decoration: none;
+}
+
+a:hover {
+  color: #000 !important;
+  font-weight: 500;
+  text-decoration: none !important;
+}
+
+/*
+div {
+  color: rgb(119, 119, 119);
+}
+*/

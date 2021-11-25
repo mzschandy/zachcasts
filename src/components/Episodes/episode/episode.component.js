@@ -1,5 +1,4 @@
 import React from "react";
-import Color from "color-thief-react";
 
 import "./episode.scss";
 

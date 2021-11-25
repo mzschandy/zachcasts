@@ -1,16 +1,13 @@
 import React from "react";
-import Color from "color-thief-react";
 // import HomeEpisodesLister from "../episodes-lister-home/episodes-lister-home";
-import EpisodesLister from "./episodes-lister.component";
 // import Logo from "../../../static/"
 // import ImageCover from "../../../static/logos/blades&bending_cover.png";
 // import ColorThief from "../../../node_modules/colorthief/dist/color-thief";
 
 import "./show.scss";
-import EpisodeLister from "../../Episodes/episode-list/episodes-list.component";
 import EpisodeItem from "../../Episodes/episode-item/episode-item.component";
 
-const Loading = () => <div>Loading...</div>;
+// const Loading = () => <div>Loading...</div>;
 const Show = ({ showEdges, showName }) => {
   const showList = [];
   console.log("showedges", showEdges[0].node.frontmatter.cover);

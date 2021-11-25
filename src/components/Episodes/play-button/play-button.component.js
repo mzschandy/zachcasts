@@ -69,7 +69,7 @@ const PlayButton = ({ mp3, title, imgPathCover }) => {
         id={title}
         onClick={() => setPlayer(mp3,
           title, imgPathCover)}
-        className={`fa fa-${icon}-circle-o w-6 h-6`}
+        className={`fa fa-${icon}-circle-o w-16 h-16`}
         ref={iconRef}
       />
     </>

@@ -14,7 +14,7 @@ const ShowsLister = ({ shows }) => {
       <div className="grid grid-cols-5">
         {shows.map((show) => (
           <Link key={show.show} to={`/shows/${_.kebabCase(show.show)}`} className="flex flex-col w-36">
-            <div className="cover"><img src={imgPath + show.cover} alt="cover" /></div>
+            <div className="cover"><img className="rounded-sm" src={imgPath + show.cover} alt="cover" /></div>
             <div className="text-center text-sm">{show.show}</div>
           </Link>
         ))}

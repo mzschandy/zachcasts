@@ -12,7 +12,7 @@ export default function Player() {
   const playerRef = useRef(null);
   const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
 
-  const ImageCover = "https://zachcasts.s3.us-east-2.amazonaws.com/blades%26bending_cover.png";
+  // const ImageCover = "https://zachcasts.s3.us-east-2.amazonaws.com/blades%26bending_cover.png";
 
   useEffect(() => {
     if (player.status === 2) {

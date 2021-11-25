@@ -1,16 +1,10 @@
-import React, {
-  useContext, useEffect, useRef, useState,
-} from "react";
+import React from "react";
 import { Link } from "gatsby";
-import PlayerContext from "../../player/player.context";
 import PlayButton from "../play-button/play-button.component";
 
 // import "../../episodes-lister-home/episodes.scss";
 
 const EpisodeItem = ({ episode }) => {
-  const player = useContext(PlayerContext);
-  const [icon, setIcon] = useState("play");
-  const iconRef = useRef(null);
   const imgPath = 'https://s3.us-east-2.amazonaws.com/zachcasts/';
 
   /*
@@ -75,9 +69,9 @@ const EpisodeItem = ({ episode }) => {
 
   return (
     <>
-      <div key={episode.title} className="flex w-full border-b border-gray-500 mb-2">
+      <div key={episode.title} className="flex w-full py-3 border-b-2 border-gray-300 mb-2">
         <div className="cover w-16 h-16 self-center rounded-sm"><img className="rounded-sm" src={imgPath + episode.cover} alt="Podcast cover" /></div>
-        <div className="ml-4 flex flex-col" style={{ flex: "60%" }}>
+        <div className="ml-4 flex flex-col self-center" style={{ flex: "60%" }}>
           <Link to={episode.path} className="">{episode.title}</Link>
           <div className="flex">
             <div className="text-xs mr-2">{episode.date}</div>
@@ -89,6 +83,7 @@ const EpisodeItem = ({ episode }) => {
           title={episode.title}
           imgPathCover={imgPath + episode.cover}
         />
+
         {/* player.isPlaying ? <i onClick={() => setPlayer(episode.audio,
             episode.title, imgPath + episode.cover)}
             className={`fa fa-${icon}-circle-o`} />
