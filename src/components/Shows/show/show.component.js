@@ -25,6 +25,7 @@ const Show = ({ showEdges, showName }) => {
       title: showEdge.node.frontmatter.title,
       date: showEdge.node.frontmatter.date,
       description: showEdge.node.frontmatter.shortDescription,
+      showDescription: showEdge.node.frontmatter.showDescription,
       audio: showEdge.node.frontmatter.audioPath,
       showLength: showEdge.node.frontmatter.showLength,
     });
@@ -36,6 +37,7 @@ const Show = ({ showEdges, showName }) => {
   // img.setAttribute('crossOrigin', '');
 
   console.log("showlist", showList);
+  console.log("showlist 1", showList[0]);
   return (
     <div className="flex flex-row mt-4">
       <div className="flex flex-col" style={{ flex: "40%" }}>
@@ -44,9 +46,9 @@ const Show = ({ showEdges, showName }) => {
         </div>
         <div className="mt-4">
           <div className="text-xl font-semibold">{showName}</div>
-          <div className="">by Podcast author</div>
+          <div className="">by Zach Schandorf-Lartey</div>
         </div>
-        <div className="mt-4">This is a description lots oflorem text</div>
+        <div className="mt-4 w-4/5">{showList[0].showDescription}</div>
       </div>
       <div className="mt-4" style={{ flex: "60%" }}>
         <div className="mb-4">All Episodes</div>

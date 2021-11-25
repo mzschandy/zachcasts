@@ -1,8 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-filename-extension */
 import React from "react";
-// import { Link } from "gatsby";
-// import PlayerContext from "../../player/player.context";
 
 import "./episodes.scss";
 import EpisodeItem from "../episode-item/episode-item.component";
