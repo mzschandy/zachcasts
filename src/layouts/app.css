@@ -7,12 +7,6 @@
   margin: 0 auto;
 }
 
-@media screen and (max-width: 749px) {
-  .contain {
-    width: auto;
-  }
-}
-
 a {
  color: #000 !important;
  text-decoration: none;
@@ -20,6 +14,27 @@ a {
 
 a:hover {
   color: #000 !important;
+}
+
+.left-col {
+  flex: 40%;
+}
+.right-col {
+  flex: 60%;
+}
+
+@media screen and (max-width: 749px) {
+  .contain {
+    width: auto;
+  }
+  .left-col {
+    flex: 100%;
+  }
+
+  .right-col {
+    flex: 100%;
+  }
+  
 }
 
 /*

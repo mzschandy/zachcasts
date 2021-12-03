@@ -39,19 +39,21 @@ const Show = ({ showEdges, showName }) => {
   console.log("showlist", showList);
   console.log("showlist 1", showList[0]);
   return (
-    <div className="flex flex-row mt-4">
-      <div className="flex flex-col" style={{ flex: "40%" }}>
-        <div className="mt-4">
-          <img id="showLogo" className="w-4/5 rounded-sm" src={imgPath + coverImage} alt="logo" />
+    <div className="flex flex-col md:flex-row mt-4">
+      <div className="flex flex-col left-col">
+        <div className="flex flex-row mb-2 md:static md:mb-0">
+          <div className="md:mt-4 w-1/4">
+            <img id="showLogo" className="md:w-4/5 rounded-sm" src={imgPath + coverImage} alt="logo" />
+          </div>
+          <div className="ml-2 md:ml-0 md:mt-4">
+            <div className="text-xl font-semibold">{showName}</div>
+            <div className="text-gray-400">by Zach Schandorf-Lartey</div>
+          </div>
         </div>
-        <div className="mt-4">
-          <div className="text-xl font-semibold">{showName}</div>
-          <div className="">by Zach Schandorf-Lartey</div>
-        </div>
-        <div className="mt-4 w-4/5">{showList[0].showDescription}</div>
+        <div className="md:mt-4 md:w-4/5 text-sm md:text-base text-gray-600">{showList[0].showDescription}</div>
       </div>
-      <div className="mt-4" style={{ flex: "60%" }}>
-        <div className="mb-4">All Episodes</div>
+      <div className="mt-4 right-col">
+        <div className="md:mb-4 text-sm font-medium">All Episodes</div>
         {showList.map((episode) => (
           <EpisodeItem episode={episode} />
         ))}
