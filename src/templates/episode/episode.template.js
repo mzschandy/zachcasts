@@ -42,6 +42,7 @@ export const pageQuery = graphql`
         cover
         date
         show
+        showDescription
         tags
         audioPath
         episodeNumber

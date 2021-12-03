@@ -7,19 +7,19 @@ const Episode = ({ episodeNode }) => {
   const imgPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
 
   return (
-    <div className="flex flex-row mt-4">
-      <div className="flex flex-col" style={{ flex: "40%" }}>
-        <div className="mt-4">
-          <img id="showLogo" className="w-4/5 rounded-sm" src={imgPath + episode.cover} alt="logo" />
+    <div className="flex flex-col md:flex-row mt-4">
+      <div className="flex flex-col left-col">
+        <div className="flex flex-row mb-2 md:static md:mb-0">
+          <div className="md:mt-4 w-1/4">
+            <img id="showLogo" className="md:w-4/5 rounded-md" src={imgPath + episode.cover} alt="logo" />
+          </div>
+          <div className="ml-2 md:ml-0 md:mt-4">
+            <div className="text-base md:text-xl font-semibold">{episode.title}</div>
+            <div className="text-sm md:text-xl md:font-semibold">{episode.show}</div>
+          </div>
         </div>
-        <div className="mt-4">
-          <div className="text-xl font-semibold">{episode.show}</div>
-          <div className="">by Podcast author</div>
-        </div>
-        <div className="mt-4">This is a description lots oflorem text</div>
       </div>
-      <div className="mt-4" style={{ flex: "60%" }}>
-        <div className="text-xl font-semibold">{episode.title}</div>
+      <div className="mt-4 right-col">
         <div className="notes-inner">
           <div dangerouslySetInnerHTML={{ __html: episodeNode.html }} />
         </div>

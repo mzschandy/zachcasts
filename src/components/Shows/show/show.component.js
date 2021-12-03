@@ -43,7 +43,7 @@ const Show = ({ showEdges, showName }) => {
       <div className="flex flex-col left-col">
         <div className="flex flex-row mb-2 md:static md:mb-0">
           <div className="md:mt-4 w-1/4">
-            <img id="showLogo" className="md:w-4/5 rounded-sm" src={imgPath + coverImage} alt="logo" />
+            <img id="showLogo" className="md:w-4/5 rounded-md" src={imgPath + coverImage} alt="logo" />
           </div>
           <div className="ml-2 md:ml-0 md:mt-4">
             <div className="text-xl font-semibold">{showName}</div>
