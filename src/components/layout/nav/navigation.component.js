@@ -7,10 +7,9 @@ import { Link } from 'gatsby';
 export default function Navigation() {
   return (
     <>
-      <Nav className="h-14 border-b-2 border-purple-800 w-full fixed top-0 left-0 bg-white z-50">
+      <Nav className="h-14 border-b-2 border-gray-300 w-full fixed top-0 left-0 bg-white z-50">
         <div className="contain flex self-center">
           <Link className="text-lg font-bold" to="/">Zachcasts</Link>
-          beta
         </div>
       </Nav>
     </>

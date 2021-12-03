@@ -5,12 +5,12 @@ const FeaturedShow = () => {
 
   return (
     <>
-      <div className="text-lg font-medium mt-16 mb-4">Featured Show</div>
+      <div className="md:text-lg font-medium mt-24 md:mt-16 md:mb-4 hidden md:block">Featured Show</div>
       <div
-        className="relative w-full h-72 rounded-lg bg-cover bg-center bg-no-repeat backdrop-blur-md"
+        className="relative w-full md:h-72 h-44 rounded-xl  md:rounded-lg bg-cover bg-center bg-no-repeat backdrop-blur-md"
         style={{ backgroundImage: `url(${imgPath})` }}
       >
-        <div className="h2 font-semibold absolute bottom-4 left-4">Featured Name</div>
+        <div className="h2 font-semibold absolute bottom-4 left-4 text-white">Featured Name</div>
       </div>
     </>
   );

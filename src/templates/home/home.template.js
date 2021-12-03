@@ -1,17 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
-// import Layout from "../../layout/layout.component"
-// import HomeProfile from "../../components/profiles/home-profile/home-profile.component"
-// import EpisodesList from "../../components/episodes-list/episodes-list.component"
-
-// import Container from "react-bootstrap/Container"
 import config from "../../../data/SiteConfig";
 import "./main.scss";
-// import Player from "../../components/player/player.component"
-// import PlayerContext from "../../components/player/player.context"
 import ShowsLister from "../../components/Shows/shows-lister/shows-lister.component";
-import HomeEpisodesLister from "../../components/Episodes/episodes-lister-home/episodes-lister-home";
 import FeaturedShow from "../../components/Shows/featured-show/featured-show.component";
 import EpisodeLister from "../../components/Episodes/episode-list/episodes-list.component";
 
