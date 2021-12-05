@@ -42,9 +42,16 @@ a:hover {
   
 }
 
-i.fa {
+.play-button {
   font-size: 48px;
   cursor: pointer;
+  @apply text-gray-300;
+}
+
+.full-play-button {
+  font-size: 26px;
+  margin-right: 4px;
+  align-self: center;
   @apply text-gray-300;
 }
 

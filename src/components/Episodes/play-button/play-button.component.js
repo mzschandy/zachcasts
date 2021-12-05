@@ -3,7 +3,9 @@ import React, {
 } from "react";
 import PlayerContext from "../../player/player.context";
 
-const PlayButton = ({ mp3, title, imgPathCover }) => {
+const PlayButton = ({
+  mp3, title, imgPathCover, full,
+}) => {
   const player = useContext(PlayerContext);
   const [icon, setIcon] = useState("play");
   const [epStatus, setEpStatus] = useState(false);
@@ -94,15 +96,30 @@ const PlayButton = ({ mp3, title, imgPathCover }) => {
       // console.log("--- Status is Currently 1 / PAUSED ---");
     }
   });
+  const fullButton = (
+    <div
+      id={mp3}
+      onClick={() => setPlayer(mp3,
+        title, imgPathCover)}
+      className="h-9 border bg-gray-100 border-gray-700 w-36 rounded-sm flex justify-center cursor-pointer"
+    >
+      <i className={`fa fa-${icon}-circle-o full-play-button`} ref={iconRef} />
+      <div className="self-center uppercase text-gray-400">{icon}</div>
+    </div>
+  );
+
+  const normalButton = (
+    <i
+      id={mp3}
+      onClick={() => setPlayer(mp3,
+        title, imgPathCover)}
+      className={`fa fa-${icon}-circle-o play-button`}
+      ref={iconRef}
+    />
+  );
   return (
     <>
-      <i
-        id={mp3}
-        onClick={() => setPlayer(mp3,
-          title, imgPathCover)}
-        className={`fa fa-${icon}-circle-o`}
-        ref={iconRef}
-      />
+      {full ? fullButton : normalButton}
     </>
   );
 };

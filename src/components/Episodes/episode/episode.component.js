@@ -1,4 +1,5 @@
 import React from "react";
+import PlayButton from "../play-button/play-button.component";
 
 import "./episode.scss";
 
@@ -17,6 +18,9 @@ const Episode = ({ episodeNode }) => {
             <div className="text-base md:text-xl font-semibold">{episode.title}</div>
             <div className="text-sm md:text-base md:font-semibold text-gray-600">{episode.show}</div>
           </div>
+        </div>
+        <div className="self-center -mt-8">
+          <PlayButton mp3={episode.audioPath} full />
         </div>
       </div>
       <div className="mt-4 right-col md:absolute md:right-0 md:w-3/5">
