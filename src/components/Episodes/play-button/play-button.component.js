@@ -6,7 +6,10 @@ import PlayerContext from "../../player/player.context";
 const PlayButton = ({ mp3, title, imgPathCover }) => {
   const player = useContext(PlayerContext);
   const [icon, setIcon] = useState("play");
+  const [epStatus, setEpStatus] = useState(false);
   const iconRef = useRef(null);
+
+  // const toggleEp = () => setEpStatus(prevEpSatus => !epStatus);
 
   const setPlayer = (audio) => {
     console.log("current audio is", player.audio);
@@ -14,7 +17,12 @@ const PlayButton = ({ mp3, title, imgPathCover }) => {
     // iconRef.current.focus();
     iconRef.current.classList.add("test");
     console.log(iconRef.current.classList);
-    console.log(iconRef.current.id);
+    console.log("icon ref id", iconRef.current.id);
+    console.log("player audio", player.audio);
+    console.log("clicked audio is", audio);
+
+    setEpStatus((prevEpStatus) => !prevEpStatus);
+    console.log("Current playButton audio playing is > ", epStatus);
 
     const currentAudio = player.audio;
     const newAudio = audio;
@@ -22,7 +30,7 @@ const PlayButton = ({ mp3, title, imgPathCover }) => {
     // player.setImage(image);
     // player.setTitle(title);
     // player.setIsPlaying(true);
-    if (player.status === 2) {
+    if (player.status === 2) { // Audio is playing
       console.log("---");
       // console.log("player is playing, set to false");
       if (currentAudio !== newAudio) {
@@ -32,7 +40,7 @@ const PlayButton = ({ mp3, title, imgPathCover }) => {
         player.setStatus(1);
       }
       // console.log("Status set to 1 (from lister)");
-    } else if (player.status === 1) {
+    } else if (player.status === 1) { // Audio is not playing
       console.log("---");
       // console.log("player is not playing, set to true");
       if (currentAudio !== newAudio) {
@@ -40,7 +48,7 @@ const PlayButton = ({ mp3, title, imgPathCover }) => {
         player.setStatus(2);
       }
       player.setStatus(2);
-    } else if (player.status === 0) {
+    } else if (player.status === 0) { // Audio is not playing, default value
       console.log("---");
       player.setAudio(audio);
       // console.log("Initial audio played");
@@ -51,14 +59,37 @@ const PlayButton = ({ mp3, title, imgPathCover }) => {
 
   useEffect(() => {
     console.log("const playing status is", player.status);
-    if (player.status === 2) {
+    if (player.status === 2) { // AUdio is playing
       // icon = "pause";
-      setIcon("pause");
+      if (player.audio === iconRef.current.id) {
+        setIcon("pause");
+      } else {
+        setEpStatus(false);
+        setIcon("play");
+      }
+
+      // setEpStatus(true);
+
+      // setEpStatus((prevEpStatus) => !prevEpStatus);
+      console.log("playButton status is > ", epStatus);
+      // setIcon("pause");
+      // iconRef.current.classList.toggle(`fa-${icon}-circle-o`);
       // console.log('icon', icon);
       // console.log("--- tatus is Currently 2 / PLAYING ---");
-    } else if (player.status === 1) {
+    } else if (player.status === 1) { // Audio is paused
       // icon = "play";
-      setIcon("play");
+      if (player.audio === iconRef.current.id) {
+        setIcon("play");
+      } else {
+        // setEpStatus(true);
+      }
+
+      // setEpStatus(false);
+
+      // setEpStatus((prevEpStatus) => !prevEpStatus);
+      console.log("playButton status is > ", epStatus);
+      // setIcon("play");
+      // iconRef.current.classList.toggle(`fa-${icon}-circle-o`);
       // console.log("icon", icon);
       // console.log("--- Status is Currently 1 / PAUSED ---");
     }
@@ -66,10 +97,10 @@ const PlayButton = ({ mp3, title, imgPathCover }) => {
   return (
     <>
       <i
-        id={title}
+        id={mp3}
         onClick={() => setPlayer(mp3,
           title, imgPathCover)}
-        className={`fa fa-${icon}-circle-o w-16 h-16`}
+        className={`fa fa-${icon}-circle-o`}
         ref={iconRef}
       />
     </>

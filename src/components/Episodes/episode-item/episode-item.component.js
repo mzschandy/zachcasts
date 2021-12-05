@@ -7,7 +7,7 @@ const EpisodeItem = ({ episode }) => {
 
   return (
     <>
-      <div key={episode.title} className="flex w-full py-3 border-b-2 border-gray-300 mb-2">
+      <div key={episode.audio} className="flex w-full py-3 border-b-2 border-gray-300 mb-2">
         <div className="cover w-16 h-16 self-center rounded-sm"><img className="rounded-sm" src={imgPath + episode.cover} alt="Podcast cover" /></div>
         <div className="ml-2 md:ml-4 flex flex-col self-center" style={{ flex: "60%" }}>
           <Link to={episode.path} className="font-semibold md:font-normal">{episode.title}</Link>

@@ -23,6 +23,11 @@ a:hover {
   flex: 60%;
 }
 
+.lister .item:last-child {
+  padding-bottom: 4em !important;
+  margin-bottom: 4em !important;
+}
+
 @media screen and (max-width: 749px) {
   .contain {
     width: auto;
@@ -35,6 +40,12 @@ a:hover {
     flex: 100%;
   }
   
+}
+
+i.fa {
+  font-size: 48px;
+  cursor: pointer;
+  @apply text-gray-300;
 }
 
 /*
