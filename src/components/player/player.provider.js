@@ -1,25 +1,28 @@
-import React, {useState, useEffect} from "react"
-import Player from "./player.component"
-import PlayerContext from "./player.context"
+import React, { useState } from "react";
+// import Player from "./player.component";
+import PlayerContext from "./player.context";
 
-export const PlayerProvider = ({children}) => {
-  const [audio, setAudio] = useState()
+export const PlayerProvider = ({ children }) => {
+  const [audio, setAudio] = useState();
+  // const [isPlaying, setIsPlaying] = useState(false);
+  const [status, setStatus] = useState(0);
 
-  const playAudio = (event, data) => {
-    event.preventDefault()
-    //console.log("audio data" , data)
-    setAudio(data);
-  }
+  // 0 = initial pause
+  // 1 = regular pause
+  // 2 = play
 
-  const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/"
-  //console.log("audio path", audioFolderPath + audio)
+  // const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
+  // console.log("audio path", audioFolderPath + audio
 
   return (
-    <PlayerContext.Provider value={{audio, setAudio}}>
+    <PlayerContext.Provider value={{
+      audio, setAudio, status, setStatus,
+    }}
+    >
       {children}
-      {/*<Player mp3={audioFolderPath + audio} />*/}
+      {/* <Player mp3={audioFolderPath + audio} /> */}
     </PlayerContext.Provider>
-  )
-}
+  );
+};
 
-//export default PlayerProvider
+export default PlayerProvider;

@@ -1,64 +1,71 @@
-import React, {useState, useEffect, useContext} from "react"
-import AudioPlayer from "react-h5-audio-player"
+/* eslint-disable jsx-a11y/alt-text */
+import React, { useContext, useEffect, useRef } from "react";
+import AudioPlayer from "react-h5-audio-player";
 
-import 'react-h5-audio-player/src/styles.scss'
-import PlayerContext from "./player.context"
-import ImageCover from "../../../static/logos/blades&bending_cover.png"
+import 'react-h5-audio-player/src/styles.scss';
+import PlayerContext from "./player.context";
 
+import "./player.scss";
 
-import "./player.scss"
+export default function Player() {
+  const player = useContext(PlayerContext);
+  const playerRef = useRef(null);
+  const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
 
-export default function Player({mp3, index, episodeNumber}) {
-
-  const [expand, setExpand] = useState(false)
-  const player = useContext(PlayerContext)
-  const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/"
+  // const ImageCover = "https://zachcasts.s3.us-east-2.amazonaws.com/blades%26bending_cover.png";
 
   useEffect(() => {
-    console.log("useEffect expand", expand)
-  }, [expand])
-
-  function expandPlayer() {
-    const player = document.getElementById("player")
-    //console.log(player)
-    //console.log("current expand value", expand)
-
-    //console.log("expanding player")
-
-    player.classList.add("active")
-
-    if (player.classList.contains("active") && expand == true) {
-      //console.log("player still has active, removing now")
-      player.classList.remove("active")
-      setExpand(current => !current)
-    } else {
-      setExpand(current => !current)
-      //console.log("new expand value", expand)
-    
-      //console.log("added active class")
+    if (player.status === 2) {
+      console.log("// PLAYER IS PLAYING //");
+      playerRef.current.audio.current.play();
+      // console.log("AUDIO IS NOW PAUSED");
+    } else if (player.status === 1) {
+      console.log("// PLAYER IS PAUSED //");
+      playerRef.current.audio.current.pause();
+      // console.log("AUDIO IS NOW PLAYING");
+    } else if (player.status === 0) {
+      console.log("// PLAYER IN INTIIAL STATE //");
     }
-  }
+  });
 
-  function shrink() {
-    const player = document.getElementById("player")
-    //console.log("shrinking player!")
+  const playAudio = () => {
+    if (player.status === 1) {
+      player.setStatus(2);
+      console.log("status set to 2 (from player component)", player.status);
+      // playerRef.current.audio.current.play();
+      // console.log("AUDIO IS NOW PLAYING");
+    }
+    if (player.status === 0) {
+      player.setStatus(2);
+      // playerRef.current.audio.current.play();
+      // console.log("AUDIO IS NOW PLAYING", player.status);
+    }
+  };
 
-    player.classList.remove("active")
+  const pauseAudio = () => {
+    player.setStatus(1);
+    console.log("status set to 1 (from player component)", player.status);
+    // playerRef.current.audio.current.pause();
+    // console.log("AUDIO IS NOW PAUSED");
+    /*
+    if (player.status === 2) {
+      player.setStatus(1);
+      console.log("AUDIO IS PLAYING:", player.status);
+      playerRef.current.audio.current.pause();
+      // console.log("AUDIO IS NOW PLAYING");
+    } */
+  };
 
-    //console.log("removed active class")
-  }
-
-  return(
-    <div className="player" id="player" onClick={expandPlayer}>
-      <div className="currently-playing">
-        <div className="top"><i onClick={shrink} id="slideDown" className="fa fa-sort-down"></i></div>
-        <div className="playing-cover"><img src={ImageCover}></img></div>
-        <div className="playing-details">
-          <div className="playing-title">Ep. 1: Missing (Book 1 - Chapter 1)</div>
-          <div className="playing-source">Blades and Bending</div>
-        </div>
+  return (
+    <>
+      <div className="fixed z-30 bottom-0 left-0 w-full" id="player">
+        <AudioPlayer
+          ref={playerRef}
+          src={audioFolderPath + player.audio}
+          onPlay={() => { playAudio(); }}
+          onPause={() => { pauseAudio(); }}
+        />
       </div>
-      <AudioPlayer src={audioFolderPath + player.audio} onPlay={event => console.log("onPlay")} />
-    </div>
-  )
+    </>
+  );
 }
