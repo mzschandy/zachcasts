@@ -33,8 +33,6 @@ const Show = ({ showEdges, showName }) => {
   });
 
   // const colorThief = new ColorThief();
-  const img = document.getElementById('showLogo');
-  console.log("image source >", img);
   // img.setAttribute('crossOrigin', '');
 
   console.log("showlist", showList);
