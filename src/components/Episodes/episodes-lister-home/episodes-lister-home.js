@@ -3,12 +3,12 @@ import { Link } from 'gatsby';
 import PlayerContext from "../../player/player.context";
 
 import './episodes.scss';
-import MenuBarContext from '../menu-bar/menu-bar.context';
+// import MenuBarContext from '../menu-bar/menu-bar.context';
 // import NavContext from "../nav/nav.context"
 
 const HomeEpisodesLister = ({ episodes }) => {
   const player = useContext(PlayerContext);
-  const active = useContext(MenuBarContext);
+  // const active = useContext(MenuBarContext);
   // const background = useContext(NavContext);
 
   const getEpisodeList = () => {
@@ -42,7 +42,7 @@ const HomeEpisodesLister = ({ episodes }) => {
 
   return (
     <div className="episodes-wrapper home">
-      {active.setActive('home')}
+      {/* active.setActive('home') */}
       {/* background.setBackground("#fff") */}
       <div className="header">Recent Episodes</div>
       <div className="lister">

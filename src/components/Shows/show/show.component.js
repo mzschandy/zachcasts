@@ -3,7 +3,7 @@ import React from "react";
 // import Logo from "../../../static/"
 // import ImageCover from "../../../static/logos/blades&bending_cover.png";
 // import ColorThief from "../../../node_modules/colorthief/dist/color-thief";
-import NavContext from "../nav/nav.context";
+// import NavContext from "../nav/nav.context";
 
 import "./show.scss";
 import EpisodeItem from "../../Episodes/episode-item/episode-item.component";
