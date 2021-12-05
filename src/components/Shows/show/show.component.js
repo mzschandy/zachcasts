@@ -45,7 +45,7 @@ const Show = ({ showEdges, showName }) => {
           <div className="md:mt-4 w-1/4 md:w-auto">
             <img id="showLogo" className="md:w-4/5 rounded-md" src={imgPath + coverImage} alt="logo" />
           </div>
-          <div className="md:mt-4 md:ml-0 sm:ml-2">
+          <div className="md:mt-4 title-container">
             <div className="md:text-xl font-semibold">{showName}</div>
             <div className="text-gray-400">by Zach Schandorf-Lartey</div>
           </div>

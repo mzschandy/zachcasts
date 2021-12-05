@@ -9,11 +9,12 @@
 
 a {
  color: #000 !important;
- text-decoration: none;
+ text-decoration: none !important;
 }
 
-a:hover {
+a:hover, a:focus {
   color: #000 !important;
+  text-decoration: none !important;
 }
 
 .left-col {
@@ -26,6 +27,16 @@ a:hover {
 .lister .item:last-child {
   padding-bottom: 4em !important;
   margin-bottom: 4em !important;
+}
+
+.title-container {
+  margin-left: 8px;
+}
+
+@media screen and (min-width: 748px) {
+  .title-container {
+    margin-left: 0 !important;
+  }
 }
 
 @media screen and (max-width: 749px) {
@@ -42,8 +53,8 @@ a:hover {
   
 }
 
-.play-button {
-  font-size: 48px;
+.fa.play-button {
+  font-size: 48px !important;
   cursor: pointer;
   @apply text-gray-300;
 }

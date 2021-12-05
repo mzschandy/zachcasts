@@ -30,7 +30,7 @@ const EpisodeLister = ({ episodes }) => {
   const episodeList = getEpisodeList();
 
   return (
-    <div className="w-full flex flex-col mt-2 md:mt-4">
+    <div className="w-full flex flex-col sm:mt-2 md:mt-4">
       <div className="md:mb-4 text-sm md:text-lg font-medium">All Episodes</div>
       {
         episodeList.map((episode, index) => (

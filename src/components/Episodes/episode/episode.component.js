@@ -14,12 +14,12 @@ const Episode = ({ episodeNode }) => {
           <div className="md:mt-4 w-1/4 md:w-auto">
             <img id="showLogo" className="md:w-4/5 rounded-md" src={imgPath + episode.cover} alt="logo" />
           </div>
-          <div className="sm:ml-2 md:ml-0 md:mt-4">
+          <div className="title-container md:mt-4">
             <div className="text-base md:text-xl font-semibold">{episode.title}</div>
             <div className="text-sm md:text-base md:font-semibold text-gray-600">{episode.show}</div>
           </div>
         </div>
-        <div className="self-center -mt-8">
+        <div className="self-center -mt-8 md:self-auto md:mt-2">
           <PlayButton mp3={episode.audioPath} full />
         </div>
       </div>

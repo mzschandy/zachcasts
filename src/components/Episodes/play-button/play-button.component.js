@@ -101,7 +101,7 @@ const PlayButton = ({
       id={mp3}
       onClick={() => setPlayer(mp3,
         title, imgPathCover)}
-      className="h-9 border bg-gray-100 border-gray-700 w-36 rounded-sm flex justify-center cursor-pointer"
+      className="h-9 border bg-gray-100 border-gray-700 w-36 md:w-4/5 rounded-sm flex justify-center cursor-pointer"
     >
       <i className={`fa fa-${icon}-circle-o full-play-button`} ref={iconRef} />
       <div className="self-center uppercase text-gray-400">{icon}</div>
