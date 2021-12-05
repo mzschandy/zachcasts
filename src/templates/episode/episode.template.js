@@ -1,8 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
-// import Layout from "../../layout/layout.component"
-// import PlayerContext from "../../components/player/player.context";
 import Episode from "../../components/Episodes/episode/episode.component";
 
 import config from "../../../data/SiteConfig";
@@ -21,13 +19,15 @@ export default function EpisodeTemplate({ data, pageContext }) {
   // const audio = episode.audioPath;
 
   return (
-    <div>
+    <>
       <Helmet>
         <title>{`${episode.title} | ${config.siteTitle}`}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       </Helmet>
-      <Episode episodeNode={episodeNode} />
-    </div>
+      <div className="contain">
+        <Episode episodeNode={episodeNode} />
+      </div>
+    </>
   );
 }
 
@@ -42,6 +42,7 @@ export const pageQuery = graphql`
         cover
         date
         show
+        showDescription
         tags
         audioPath
         episodeNumber

@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.contain {
+  width: 960px;
+  margin: 0 auto;
+}
+
+a {
+ color: #000 !important;
+ text-decoration: none !important;
+}
+
+a:hover, a:focus {
+  color: #000 !important;
+  text-decoration: none !important;
+}
+
+.left-col {
+  flex: 40%;
+}
+.right-col {
+  flex: 60%;
+}
+
+.lister .item:last-child {
+  padding-bottom: 4em !important;
+  margin-bottom: 4em !important;
+}
+
+.title-container {
+  margin-left: 8px;
+}
+
+@media screen and (min-width: 748px) {
+  .title-container {
+    margin-left: 0 !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .contain {
+    width: auto;
+  }
+  .left-col {
+    flex: 100%;
+  }
+
+  .right-col {
+    flex: 100%;
+  }
+  
+}
+
+.fa.play-button {
+  font-size: 48px !important;
+  cursor: pointer;
+  @apply text-gray-300;
+}
+
+.full-play-button {
+  font-size: 26px;
+  margin-right: 4px;
+  align-self: center;
+  @apply text-gray-300;
+}
+
+/*
+div {
+  color: rgb(119, 119, 119);
+}
+*/

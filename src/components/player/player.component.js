@@ -12,18 +12,53 @@ export default function Player() {
   const player = useContext(PlayerContext);
   const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
 
-  const imageFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
+  // const ImageCover = "https://zachcasts.s3.us-east-2.amazonaws.com/blades%26bending_cover.png";
+
+  useEffect(() => {
+    if (player.status === 2) {
+      console.log("// PLAYER IS PLAYING //");
+      playerRef.current.audio.current.play();
+      // console.log("AUDIO IS NOW PAUSED");
+    } else if (player.status === 1) {
+      console.log("// PLAYER IS PAUSED //");
+      playerRef.current.audio.current.pause();
+      // console.log("AUDIO IS NOW PLAYING");
+    } else if (player.status === 0) {
+      console.log("// PLAYER IN INTIIAL STATE //");
+    }
+  });
+
+  const playAudio = () => {
+    if (player.status === 1) {
+      player.setStatus(2);
+      console.log("status set to 2 (from player component)", player.status);
+      // playerRef.current.audio.current.play();
+      // console.log("AUDIO IS NOW PLAYING");
+    }
+    if (player.status === 0) {
+      player.setStatus(2);
+      // playerRef.current.audio.current.play();
+      // console.log("AUDIO IS NOW PLAYING", player.status);
+    }
+  };
+
+  const pauseAudio = () => {
+    player.setStatus(1);
+    console.log("status set to 1 (from player component)", player.status);
+    // playerRef.current.audio.current.pause();
+    // console.log("AUDIO IS NOW PAUSED");
+    /*
+    if (player.status === 2) {
+      player.setStatus(1);
+      console.log("AUDIO IS PLAYING:", player.status);
+      playerRef.current.audio.current.pause();
+      // console.log("AUDIO IS NOW PLAYING");
+    } */
+  };
 
   return (
     <>
-      <div className="player" id="player">
-        <div className="currently-playing">
-          <div className="playing-cover"><img src={imageFolderPath} alt="cover" /></div>
-          <div className="playing-details">
-            <div className="playing-title">Ep. 1: Missing (Book 1 - Chapter 1)</div>
-            <div className="playing-source">Blades and Bending</div>
-          </div>
-        </div>
+      <div className="fixed z-30 bottom-0 left-0 w-full" id="player">
         <AudioPlayer
           layout="stacked-reverse"
           src={audioFolderPath + player.audio}

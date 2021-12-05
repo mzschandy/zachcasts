@@ -8,6 +8,8 @@ import Player from "../components/player/player.component";
 import { PlayerProvider } from "../components/player/player.provider";
 // import MenuBar from "../components/menu-bar/menu-bar.component";
 
+import "./app.css";
+
 export default ({ children }) => (
   <PlayerProvider>
     <Helmet>
@@ -16,8 +18,9 @@ export default ({ children }) => (
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     </Helmet>
     <Navigation />
-    {children}
-    {/* <MenuBar /> */}
+    <div className="md:mt-14 md:mb-14 mt-20 mx-2 md:mx-0">
+      {children}
+    </div>
     <Player />
   </PlayerProvider>
 );
