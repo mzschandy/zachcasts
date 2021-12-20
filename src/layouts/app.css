@@ -7,6 +7,10 @@
   margin: 0 auto;
 }
 
+body {
+  background-color: rgb(242,242,242) !important;
+}
+
 a {
  color: #000 !important;
  text-decoration: none !important;
@@ -18,10 +22,10 @@ a:hover, a:focus {
 }
 
 .left-col {
-  flex: 40%;
+  flex: 30%;
 }
 .right-col {
-  flex: 60%;
+  flex: 70%;
 }
 
 .lister .item:last-child {

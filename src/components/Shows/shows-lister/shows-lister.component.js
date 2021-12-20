@@ -9,7 +9,7 @@ const ShowsLister = ({ shows }) => {
   const imgPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
 
   return (
-    <div className="flex flex-col sm:mt-2 md:mt-4">
+    <div className="flex flex-col sm:mt-2 md:mt-4 bg-white border border-gray-300 rounded-md p-3">
       <div className="sm:mb-2 md:mb-4 md:text-lg font-medium sm:text-sm">Shows</div>
       <div className="grid grid-cols-5">
         {shows.map((show) => (
