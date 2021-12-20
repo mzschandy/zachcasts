@@ -18,8 +18,10 @@ export default ({ children }) => (
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     </Helmet>
     <Navigation />
-    <div className="md:mt-14 md:mb-14 mt-20 mx-2 md:mx-0">
-      {children}
+    <div className="bg-color-200">
+      <div className="md:mt-14 md:mb-14 mt-20 mx-2 md:mx-0">
+        {children}
+      </div>
     </div>
     <Player />
   </PlayerProvider>
