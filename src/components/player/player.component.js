@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useContext } from "react";
-import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
+import React, { useContext, useEffect, useRef } from "react";
+import AudioPlayer from "react-h5-audio-player";
 
 import 'react-h5-audio-player/src/styles.scss';
 import PlayerContext from "./player.context";
@@ -10,6 +10,7 @@ import "./player.scss";
 
 export default function Player() {
   const player = useContext(PlayerContext);
+  const playerRef = useRef(null);
   const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
 
   // const ImageCover = "https://zachcasts.s3.us-east-2.amazonaws.com/blades%26bending_cover.png";
@@ -60,16 +61,10 @@ export default function Player() {
     <>
       <div className="fixed z-30 bottom-0 left-0 w-full" id="player">
         <AudioPlayer
-          layout="stacked-reverse"
+          ref={playerRef}
           src={audioFolderPath + player.audio}
-          onPlay={() => console.log("onPlay")}
-          customControlsSection={[
-            <div className="playing-cover"><img src={player.image} /></div>,
-            <div className="playing-details">
-              <div className="playing-title">{player.title}</div>
-            </div>,
-            RHAP_UI.MAIN_CONTROLS,
-          ]}
+          onPlay={() => { playAudio(); }}
+          onPause={() => { pauseAudio(); }}
         />
       </div>
     </>
