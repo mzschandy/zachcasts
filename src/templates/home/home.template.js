@@ -5,7 +5,6 @@ import { graphql } from "gatsby";
 import config from "../../../data/SiteConfig";
 import "./main.scss";
 import ShowsLister from "../../components/Shows/shows-lister/shows-lister.component";
-import FeaturedShow from "../../components/Shows/featured-show/featured-show.component";
 import EpisodeLister from "../../components/Episodes/episode-list/episodes-list.component";
 
 const Home = ({ data }) => {
@@ -56,7 +55,6 @@ const Home = ({ data }) => {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       </Helmet>
       <div className="contain">
-        <FeaturedShow />
         <ShowsLister shows={shows} />
         <EpisodeLister episodes={episodes} />
         {/* <HomeEpisodesLister episodes={episodes} /> */}

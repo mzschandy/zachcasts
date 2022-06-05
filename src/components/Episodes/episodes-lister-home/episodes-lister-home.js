@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
-import PlayerContext from "../../player/player.context";
+import PlayerContext from "../../../context/player.context";
 
 import './episodes.scss';
 // import MenuBarContext from '../menu-bar/menu-bar.context';
@@ -41,22 +41,23 @@ const HomeEpisodesLister = ({ episodes }) => {
   const imgPath = 'https://s3.us-east-2.amazonaws.com/zachcasts/';
 
   return (
-    <div className="episodes-wrapper home">
+    <div className="">
       {/* active.setActive('home') */}
       {/* background.setBackground("#fff") */}
-      <div className="header">Recent Episodes</div>
-      <div className="lister">
+      <div className="">Recent Episodes</div>
+      <div className="">
         {episodeList.map((episode) => (
-          <div className="episode">
-            <div className="cover"><img src={imgPath + episode.cover} alt="Podcast cover" /></div>
-            <div className="episode-info">
-              <div className="release-info">
-                <div className="date">{episode.date}</div>
-                <div className="time">{episode.showLength}</div>
+          <div className="">
+            { /* <div className="">
+            <img src={imgPath + episode.cover} alt="Podcast cover" /></div> */ }
+            <div className="">
+              <div className="">
+                <div className="">{episode.date}</div>
+                <div className="">{episode.showLength}</div>
               </div>
-              <Link to={episode.path} className="title">{episode.title}</Link>
-              <div className="description">{episode.exerpt}</div>
-              <div className="show-name">{episode.show}</div>
+              <Link to={episode.path} className="">{episode.title}</Link>
+              <div className="">{episode.exerpt}</div>
+              <div className="">{episode.show}</div>
             </div>
             <i onClick={() => setPlayer(episode.audio, episode.title, imgPath + episode.cover)} className="fa fa-play-circle-o" />
           </div>

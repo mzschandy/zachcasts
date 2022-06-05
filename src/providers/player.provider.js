@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import Player from "./player.component";
-import PlayerContext from "./player.context";
+import PlayerContext from "../context/player.context";
 
 export const PlayerProvider = ({ children }) => {
   const [audio, setAudio] = useState();

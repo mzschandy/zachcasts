@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "gatsby";
-import PlayerContext from "../../player/player.context";
+import PlayerContext from "../../../context/player.context";
 
 import "./show.scss";
 
@@ -19,19 +19,19 @@ const EpisodesLister = ({ episodes }) => {
   // const playingToggle = player.playing;
   const imgPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
   return (
-    <div className="wrapper-outer">
-      <div className="episodes-wrapper">
-        <div className="header">Recent Episodes</div>
-        <div className="lister">
+    <div className="">
+      <div className="">
+        <div className="">Recent Episodes</div>
+        <div className="">
           {episodes.map((episode) => (
-            <div className="episode">
-              <div className="episode-info">
-                <div className="release-info">
-                  <div className="date">{episode.date}</div>
-                  <div className="time">{episode.showLength}</div>
+            <div className="">
+              <div className="">
+                <div className="">
+                  <div className="">{episode.date}</div>
+                  <div className="">{episode.showLength}</div>
                 </div>
-                <Link to={episode.path} className="title">{episode.title}</Link>
-                <div className="description">
+                <Link to={episode.path} className="">{episode.title}</Link>
+                <div className="">
                   {episode.description}
                 </div>
               </div>

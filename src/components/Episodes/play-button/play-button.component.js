@@ -1,7 +1,7 @@
 import React, {
   useContext, useEffect, useRef, useState,
 } from "react";
-import PlayerContext from "../../player/player.context";
+import PlayerContext from "../../../context/player.context";
 
 const PlayButton = ({
   mp3, title, imgPathCover, full,

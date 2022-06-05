@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState } from "react";
-import NavContext from "./nav.context";
+import NavContext from "../context/nav.context";
 
 export const NavProvider = ({ children }) => {
   const [background, setBackground] = useState("#fff");
