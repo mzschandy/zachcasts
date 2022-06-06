@@ -3,7 +3,8 @@ import React from "react";
 // import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 // import config from "../../../data/SiteConfig";
-import Show from "../../components/Shows/show/show.component";
+import Show from "../../components/shows/show/show.component";
+import Lister from "../../components/lister/lister.component";
 
 const ShowTemplate = ({ pageContext, data }) => {
   const { show } = pageContext;
@@ -12,6 +13,8 @@ const ShowTemplate = ({ pageContext, data }) => {
     <>
       <div className="contain">
         <Show showEdges={showEdges} showName={show} />
+        <div>------------</div>
+        <Lister episodes={showEdges} />
       </div>
     </>
   );

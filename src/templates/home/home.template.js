@@ -4,8 +4,7 @@ import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import config from "../../../data/SiteConfig";
 import "./main.scss";
-import ShowsLister from "../../components/Shows/shows-lister/shows-lister.component";
-import EpisodeLister from "../../components/Episodes/episode-list/episodes-list.component";
+import Lister from "../../components/lister/lister.component";
 
 const Home = ({ data }) => {
   const episodes = data.allMarkdownRemark.edges;
@@ -48,6 +47,8 @@ const Home = ({ data }) => {
       }
     });
   });
+
+  // const options = [true, false];
   return (
     <>
       <Helmet>
@@ -55,9 +56,10 @@ const Home = ({ data }) => {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       </Helmet>
       <div className="contain">
-        <ShowsLister shows={shows} />
-        <EpisodeLister episodes={episodes} />
-        {/* <HomeEpisodesLister episodes={episodes} /> */}
+        <div>New Shows Lister</div>
+        <Lister shows={shows} />
+        <div>New Episodes Lister</div>
+        <Lister episodes={episodes} home />
       </div>
       {/* <Player mp3={audioFolderPath + audio} /> */}
     </>

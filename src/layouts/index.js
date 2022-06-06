@@ -5,10 +5,8 @@ import Navigation from "../components/layout/nav/navigation.component";
 import config from "../../data/SiteConfig";
 
 import Player from "../components/player/player.component";
-import { PlayerProvider } from "../components/player/player.provider";
+import { PlayerProvider } from "../providers/player.provider";
 // import MenuBar from "../components/menu-bar/menu-bar.component";
-
-import "./app.css";
 
 export default ({ children }) => (
   <PlayerProvider>
@@ -21,6 +19,6 @@ export default ({ children }) => (
     <div className="md:mt-14 md:mb-14 mt-20 mx-2 md:mx-0">
       {children}
     </div>
-    <Player />
+    { /* <Player /> */ }
   </PlayerProvider>
 );

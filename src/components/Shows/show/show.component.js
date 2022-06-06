@@ -1,12 +1,5 @@
 import React from "react";
-// import HomeEpisodesLister from "../episodes-lister-home/episodes-lister-home";
-// import Logo from "../../../static/"
-// import ImageCover from "../../../static/logos/blades&bending_cover.png";
-// import ColorThief from "../../../node_modules/colorthief/dist/color-thief";
-// import NavContext from "../nav/nav.context";
-
 import "./show.scss";
-import EpisodeItem from "../../episodes/episode-item/episode-item.component";
 
 // const Loading = () => <div>Loading...</div>;
 const Show = ({ showEdges, showName }) => {
@@ -25,15 +18,12 @@ const Show = ({ showEdges, showName }) => {
       cover: showEdge.node.frontmatter.cover,
       title: showEdge.node.frontmatter.title,
       date: showEdge.node.frontmatter.date,
-      description: showEdge.node.frontmatter.shortDescription,
+      exerpt: showEdge.node.frontmatter.shortDescription,
       showDescription: showEdge.node.frontmatter.showDescription,
       audio: showEdge.node.frontmatter.audioPath,
       showLength: showEdge.node.frontmatter.showLength,
     });
   });
-
-  // const colorThief = new ColorThief();
-  // img.setAttribute('crossOrigin', '');
 
   console.log("showlist", showList);
   console.log("showlist 1", showList[0]);
@@ -51,13 +41,6 @@ const Show = ({ showEdges, showName }) => {
         </div>
         <div className="">{showList[0].showDescription}</div>
       </div>
-      <div className="">
-        <div className=" ">All Episodes</div>
-        {showList.map((episode) => (
-          <EpisodeItem className="" episode={episode} />
-        ))}
-      </div>
-
     </div>
   );
 };

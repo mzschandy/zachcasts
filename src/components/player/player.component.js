@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import AudioPlayer from "react-h5-audio-player";
 
 import 'react-h5-audio-player/src/styles.scss';
-import PlayerContext from "./player.context";
+import PlayerContext from "../../context/player.context";
 
 import "./player.scss";
 
