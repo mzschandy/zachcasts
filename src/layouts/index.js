@@ -19,6 +19,6 @@ export default ({ children }) => (
     <div className="md:mt-14 md:mb-14 mt-20 mx-2 md:mx-0">
       {children}
     </div>
-    { /* <Player /> */ }
+    <Player />
   </PlayerProvider>
 );

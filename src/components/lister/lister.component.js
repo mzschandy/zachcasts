@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import _ from 'lodash';
+import PlayButton from '../episodes/play-button/play-button.component';
 
 const Lister = ({ episodes = null, shows = null, home }) => {
   console.log("lister");
@@ -45,7 +46,7 @@ const Lister = ({ episodes = null, shows = null, home }) => {
   console.log("showlist", showList);
 
   const homeEpisodeLister = episodeList.map((episode) => (
-    <div className="">
+    <div key={episode.title} className="">
       <div className="">
         <div>HOME PAGE</div>
         <div className="">
@@ -60,7 +61,7 @@ const Lister = ({ episodes = null, shows = null, home }) => {
   ));
 
   const episodeLister = episodeList.map((episode) => (
-    <div className="">
+    <div key={episode.title} className="">
       <div className="">
         <div>EPISODE PAGE</div>
         <div className="">
@@ -73,6 +74,11 @@ const Lister = ({ episodes = null, shows = null, home }) => {
         </div>
       </div>
       <i className="fa fa-play-circle-o" />
+      <PlayButton
+        mp3={episode.audio}
+        title={episode.title}
+        imgPathCover="https://zachcasts.s3.us-east-2.amazonaws.com/blades%26bending_cover.png"
+      />
     </div>
   ));
 

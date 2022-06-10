@@ -16389,6 +16389,11 @@ shell-quote@1.6.1:
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
 
+shikwasa@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/shikwasa/-/shikwasa-2.1.3.tgz#c102b6935cd126fca88095857e46acb9074747c2"
+  integrity sha512-PPEUI9V5yjQ3N8+wuAAreqGrd0WHnq3wls1WHLuRmjfNRKA1de5vfdgRM5DcRr1fOyNoIDj6MbDKBmcVoH/hrw==
+
 side-channel@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/side-channel/-/side-channel-1.0.4.tgz#efce5c8fdc104ee751b25c58d4290011fa5ea2cf"

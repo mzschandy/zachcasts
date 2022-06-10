@@ -4,7 +4,7 @@ import React, {
 import PlayerContext from "../../../context/player.context";
 
 const PlayButton = ({
-  mp3, title, imgPathCover, full,
+  mp3, title, imgPathCover,
 }) => {
   const player = useContext(PlayerContext);
   const [icon, setIcon] = useState("play");
@@ -119,7 +119,7 @@ const PlayButton = ({
   );
   return (
     <>
-      {full ? fullButton : normalButton}
+      <div>PLAY/STOP</div>
     </>
   );
 };

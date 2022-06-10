@@ -7,10 +7,11 @@ export const PlayerProvider = ({ children }) => {
   // const [playing, setPlaying] = useState();
   const [image, setImage] = useState();
   const [title, setTitle] = useState();
+  const [status, setStatus] = useState(0);
 
   return (
     <PlayerContext.Provider value={{
-      audio, setAudio, title, setTitle, image, setImage,
+      audio, setAudio, title, setTitle, image, setImage, status, setStatus,
     }}
     >
       {children}
