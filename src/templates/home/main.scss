@@ -1,11 +1,7 @@
-@import "~bootstrap/scss/bootstrap";
-
 .profile {
     display: flex;
     margin-top: 2em;
     padding: 2em;
-
-    
 }
 
 .image-cover {
@@ -29,7 +25,6 @@
     .podcast-author {
         margin-top: -12px;
         padding-left: 5px;
-
     }
 
     .podcast-bio {
@@ -81,7 +76,6 @@
 
         .podcast-bio {
             font-size: 14px;
-
         }
     }
 }
