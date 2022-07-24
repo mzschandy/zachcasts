@@ -12,13 +12,14 @@ import PlayerContext from "../../context/player.context";
 
 import "./player.scss";
 import { useAudioElement } from "../../providers/audio-element.provider";
+import { useAppState } from "../../providers/app-state.provider";
 
 export default function Player() {
   const playerCon = useContext(PlayerContext);
   // const playerRef = useRef(null);
   const audioFolderPath = "https://s3.us-east-2.amazonaws.com/zachcasts/";
   const audioElement = useAudioElement();
-
+  // const { currentTrack } = useAppState();
   const ImageCover = "https://zachcasts.s3.us-east-2.amazonaws.com/blades%26bending_cover.png";
 
   /*
@@ -34,6 +35,7 @@ export default function Player() {
 
   useEffect(() => {
     console.log(audioElement.current);
+    /*
     if (playerCon.status === 2) {
       console.log("// PLAYER IS PLAYING //");
       // audioElement.current.audio.current.play();
@@ -48,13 +50,17 @@ export default function Player() {
       // console.log("AUDIO IS NOW PLAYING");
     } else {
       console.log("// PLAYER IN INTIIAL STATE //");
-    }
-  }, [playerCon.status]);
+    } */
+  });
 
   const playAudio = () => {
+    console.log("PLAYER COMPONENT playAudio()");
+    console.log("Audio playing should be", currentTrack);
+    console.log("Audio playing is actually", audioElement.current);
+    /*
     if (playerCon.status === 1) {
       // playerCon.setStatus(2);
-      console.log("status set to 2 (from player component)", playerCon.status);
+      // console.log("status set to 2 (from player component)", playerCon.status);
       // playerRef.current.play();
       // playerRef.current.audio.current.play();
       // console.log("AUDIO IS NOW PLAYING");
@@ -64,12 +70,13 @@ export default function Player() {
       // playerRef.current.play();
       // playerRef.current.audio.current.play();
       // console.log("AUDIO IS NOW PLAYING", player.status);
-    }
+    }*/
   };
 
   const pauseAudio = () => {
+    console.log("PLAYER COMPONENT puaseAudio()");
     // playerCon.setStatus(1);
-    console.log("status set to 1 (from player component)", playerCon.status);
+    // console.log("status set to 1 (from player component)", playerCon.status);
     // playerRef.current.pause();
     // playerRef.current.audio.current.pause();
     // console.log("AUDIO IS NOW PAUSED");

@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import _ from 'lodash';
 import PlayButton from '../Episodes/play-button/play-button.component';
 import EpisodeItem from '../Episodes/episode-item/episode-item.component';
@@ -13,6 +13,7 @@ const Lister = ({ episodes = null, shows = null, home }) => {
   const playerCon = useContext(PlayerContext);
   const audioElement = useAudioElement();
   const load = useLoadEpisode();
+  const [stateEpisodeList, setStateEpisodeList] = useState();
 
   // const { home, image } = options;
 
@@ -45,6 +46,8 @@ const Lister = ({ episodes = null, shows = null, home }) => {
         });
       });
     }
+    // setStateEpisodeList(episodeList);
+    // console.log(stateEpisodeList);
     return episodeList;
   };
 
@@ -52,12 +55,13 @@ const Lister = ({ episodes = null, shows = null, home }) => {
 
   const episodeList = getEpisodeList();
   const showList = getShowList();
-  //console.log("episodeList", episodeList);
+  console.log("episodeList", episodeList);
   //console.log("showlist", showList);
 
   const playAudio = () => {
     console.log("playAudio() function triggered");
     audioElement.current.audio.current.play();
+    playerCon.setStatus(2);
     // playerCon.setAudio(episode.audio);
   };
 
@@ -65,6 +69,7 @@ const Lister = ({ episodes = null, shows = null, home }) => {
     console.log("pauseAudio() function triggered");
     audioElement.current.audio.current.pause();
     playerCon.setStatus(1);
+    
   };
 
 
@@ -103,7 +108,8 @@ const Lister = ({ episodes = null, shows = null, home }) => {
           console.log(ref);
           
           playerCon.setAudio(episode.audio);
-          playerCon.setStatus(2);
+          // if(playerCon.status === 12) 
+          // playerCon.setStatus(2);
           playerCon.setTitle(episode.title);
         } else {
           console.log("isn'tInPlayer, starting new audio")
