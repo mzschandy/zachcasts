@@ -10,6 +10,8 @@ import AudioElementProvider from "../providers/audio-element.provider";
 import { AppStateProvider } from "../providers/app-state.provider";
 // import MenuBar from "../components/menu-bar/menu-bar.component";
 
+import "./layout.scss";
+
 export default ({ children }) => (
   <AudioElementProvider>
     <AppStateProvider>
@@ -20,12 +22,11 @@ export default ({ children }) => (
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         </Helmet>
         <Navigation />
-        <div className="md:mt-14 md:mb-14 mt-20 mx-2 md:mx-0">
+        <div className="main-wrapper">
           {children}
         </div>
         <Player />
       </PlayerProvider>
     </AppStateProvider>
   </AudioElementProvider>
-
 );

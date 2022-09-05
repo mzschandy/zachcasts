@@ -3,8 +3,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import config from "../../../data/SiteConfig";
-import "./main.scss";
-import Lister from "../../components/lister/lister.component";
+import Lister from "../../components/listers/lister/lister.component";
 
 const Home = ({ data }) => {
   const episodes = data.allMarkdownRemark.edges;
@@ -55,10 +54,8 @@ const Home = ({ data }) => {
         <title>{config.siteTitle}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       </Helmet>
-      <div className="contain">
-        <div>New Shows Lister</div>
+      <div className="">
         <Lister shows={shows} />
-        <div>New Episodes Lister</div>
         <Lister episodes={episodes} home />
       </div>
       {/* <Player mp3={audioFolderPath + audio} /> */}

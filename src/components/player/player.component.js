@@ -3,8 +3,7 @@
 import React, {
   useContext, useEffect, useRef,
 } from "react";
-import 'shikwasa/dist/shikwasa.min.css';
-import Shikwasa from 'shikwasa';
+
 import AudioPlayer from "react-h5-audio-player";
 
 import 'react-h5-audio-player/src/styles.scss';

@@ -1,12 +1,13 @@
 import { Link } from 'gatsby';
 import React, { useRef, useContext, useState } from 'react';
 import _ from 'lodash';
-import PlayButton from '../Episodes/play-button/play-button.component';
-import EpisodeItem from '../Episodes/episode-item/episode-item.component';
-import { useAudioElement } from '../../providers/audio-element.provider';
-import Spinner from '../spinner/spinner.component';
-import PlayerContext from '../../context/player.context';
-import { isInPlayer, useLoadEpisode } from '../utils/utils.component';
+import PlayButton from '../../episodes/play-button/play-button.component';
+import { useAudioElement } from '../../../providers/audio-element.provider';
+import Spinner from '../../spinner/spinner.component';
+import PlayerContext from '../../../context/player.context';
+import { isInPlayer, useLoadEpisode } from '../../utils/utils.component';
+import EpisodeItem from '../episode-item/episode-item.component';
+import ShowItem from '../show-item/show-item.component';
 
 const Lister = ({ episodes = null, shows = null, home }) => {
   const activeEpisode = useRef();
@@ -14,6 +15,7 @@ const Lister = ({ episodes = null, shows = null, home }) => {
   const audioElement = useAudioElement();
   const load = useLoadEpisode();
   const [stateEpisodeList, setStateEpisodeList] = useState();
+  let list;
 
   // const { home, image } = options;
 
@@ -51,12 +53,10 @@ const Lister = ({ episodes = null, shows = null, home }) => {
     return episodeList;
   };
 
-  
-
   const episodeList = getEpisodeList();
   const showList = getShowList();
   console.log("episodeList", episodeList);
-  //console.log("showlist", showList);
+  // console.log("showlist", showList);
 
   const playAudio = () => {
     console.log("playAudio() function triggered");
@@ -69,35 +69,15 @@ const Lister = ({ episodes = null, shows = null, home }) => {
     console.log("pauseAudio() function triggered");
     audioElement.current.audio.current.pause();
     playerCon.setStatus(1);
-    
   };
-
-
-  const homeEpisodeLister = episodeList.map((episode) => (
-    <div key={episode.title} className="">
-      <div className="">
-        <div>HOME PAGE</div>
-        <div className="">
-          <div className="">{episode.date}</div>
-          <div className="">{episode.showLength}</div>
-        </div>
-        <Link to={episode.path} className="">{episode.title}</Link>
-        <div className="">{episode.show}</div>
-      </div>
-      <i className="fa fa-play-circle-o" />
-    </div>
-  ));
 
   /*
   const episodeLister = episodeList.map((episode) => (
 
   )); */
   if (episodes != null) {
-    if (home) {
-      return homeEpisodeLister;
-    }
-    if (episodeList) {
-      return episodeList.map((episode) => {
+     if (episodeList) {
+      list = episodeList.map((episode) => {
         let handlePlay;
         let ref;
 
@@ -106,16 +86,16 @@ const Lister = ({ episodes = null, shows = null, home }) => {
           handlePlay = () => playAudio(episode);
           ref = activeEpisode;
           console.log(ref);
-          
+
           playerCon.setAudio(episode.audio);
-          // if(playerCon.status === 12) 
+          // if(playerCon.status === 12)
           // playerCon.setStatus(2);
           playerCon.setTitle(episode.title);
         } else {
-          console.log("isn'tInPlayer, starting new audio")
+          console.log("isn'tInPlayer, starting new audio");
           handlePlay = () => load(episode, playerCon);
           ref = null;
-          console.log(ref)
+          console.log(ref);
         }
 
         return (
@@ -126,27 +106,28 @@ const Lister = ({ episodes = null, shows = null, home }) => {
             activeEpisode={ref}
             onPlayButton={handlePlay}
             onPauseButton={() => pauseAudio(episode)}
+            home={!!home}
           />
         );
       });
+    } else {
+      list = <Spinner />;
     }
-    return <Spinner />;
   }
 
-
   const showsLister = showList.map((show) => (
-    <Link key={show.show} to={`/shows/${_.kebabCase(show.show)}`}>
-      <div>{show.show}</div>
-    </Link>
+    <ShowItem key={show.show} show={show} />
   ));
-
-  let list;
 
   if (shows != null) {
     list = (
       <>
-        {showsLister}
+        <div>Podcasts</div>
+        <div className="list-wrapper__shows">
+          {showsLister}
+        </div>
       </>
+      
     );
   }
 
@@ -155,9 +136,9 @@ const Lister = ({ episodes = null, shows = null, home }) => {
   }
 
   return (
-    <>
+    <div className="list-wrapper">
       {list}
-    </>
+    </div>
   );
 };
 

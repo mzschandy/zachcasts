@@ -1,0 +1,22 @@
+.show-item__wrapper {
+  width: 150px;
+  margin-right: 25px;
+}
+
+.show-item__image img {
+  width: 150px;
+  height: 150px;
+}
+
+@media screen and (max-width: 749px) {
+  .show-item__wrapper {
+    width: unset;
+    margin-right: unset;  
+  }
+
+  .show-item__image img {
+    width: 100px;
+    height: 100px;
+  }
+
+}

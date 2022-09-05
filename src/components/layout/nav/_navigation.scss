@@ -1,0 +1,35 @@
+.navigation-outer-wrapper {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: lightgreen;
+}
+
+.c-theme-toggle {
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0.5000000266rem;
+  padding: var(--spacing-unit-tiny);
+  margin: -0.5rem;
+  margin: calc(var(--spacing-unit-tiny)*-1);
+  transition: background-color .2s cubic-bezier(.4,0,.2,1),box-shadow .2s cubic-bezier(.4,0,.2,1);
+  border-radius: 50%;
+  touch-action: manipulation;
+
+  svg {
+    fill: #1f292e;
+    fill: rgba(var(--color-text),1);
+    display: block;
+    height: 1.3687427284rem;
+    width: 1.3687427284rem;
+    width: auto;
+
+  }
+}
+
+

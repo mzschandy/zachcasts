@@ -1,0 +1,46 @@
+.episode-item__home {
+  display: flex;
+  background-color: red;
+  margin-bottom: 8px;
+
+  .episode-item__image {
+    margin-right: 5px;
+    background-color: orange;
+    img {
+      width: 75px;
+      height: 75px;
+    }
+  }
+
+  .episode-item__inner {
+    flex: 80%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: yellow;
+    padding: 4px 8px;
+  }
+
+  .episode-item__button {
+    background-color: green;
+    flex: 5%;
+  }
+
+  .episode-item__title span {
+    font-size: 16px;
+    text-overflow: ellipsis;
+  }
+
+  .episode-item__date {
+    font-size: 12px;
+    margin-right: 5px;
+  }
+
+  .episode-item__date-time {
+    display: inline-flex;
+  }
+
+  .episode-item__time {
+    font-size: 12px;
+  }
+}
