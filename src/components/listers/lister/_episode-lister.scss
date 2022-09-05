@@ -24,6 +24,11 @@
   .episode-item__button {
     background-color: green;
     flex: 5%;
+    display: flex;
+    width: 100%;
+    justify-items: center;
+    align-self: center;
+    height: fit-content;
   }
 
   .episode-item__title span {
@@ -42,5 +47,14 @@
 
   .episode-item__time {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .episode-item__home {
+    .episode-item__title span {
+      font-size: 14px;
+      
+    }
   }
 }

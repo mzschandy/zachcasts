@@ -1,6 +1,6 @@
 .show-item__wrapper {
   width: 150px;
-  margin-right: 25px;
+  margin-bottom: 10px;
 }
 
 .show-item__image img {
@@ -8,10 +8,19 @@
   height: 150px;
 }
 
+.show-item__title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}
+
 @media screen and (max-width: 749px) {
   .show-item__wrapper {
-    width: unset;
-    margin-right: unset;  
+    width: 100px;
+  }
+
+  .show-item__title span {
+    font-size: 10px;
   }
 
   .show-item__image img {

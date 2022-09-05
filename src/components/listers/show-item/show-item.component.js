@@ -14,7 +14,9 @@ const ShowItem = ({show}) => {
         <div className="show-item__image">
           <img src={imgPath + show.cover} alt="podcast cover" />
         </div>
-        <div className="show-item__name">{show.show}</div>
+        <div className="show-item__title">
+          <span>{show.show}</span>
+        </div>
       </div>
     </Link>
   )

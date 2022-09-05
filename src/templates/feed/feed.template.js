@@ -3,22 +3,23 @@ import React from "react";
 // import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 // import config from "../../../data/SiteConfig";
-import Show from "../../components/shows/show/show.component";
+import Feed from "../../components/Shows/feed/feed.component";
 import Lister from "../../components/listers/lister/lister.component";
 
-const ShowTemplate = ({ pageContext, data }) => {
-  const { show } = pageContext;
+const FeedTemplate = ({ pageContext, data }) => {
+  const { feed } = pageContext;
   const showEdges = data.allMarkdownRemark.edges;
   return (
     <>
       <div className="">
+        <Feed />
         <Lister episodes={showEdges} />
       </div>
     </>
   );
 };
 
-export default ShowTemplate;
+export default FeedTemplate;
 
 export const pageQuery = graphql`
   query ShowPage($show: String) {

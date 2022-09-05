@@ -2,7 +2,7 @@ import React from "react";
 import "./show.scss";
 
 // const Loading = () => <div>Loading...</div>;
-const Show = ({ showEdges, showName }) => {
+const Feed = ({ showEdges, showName }) => {
   const showList = [];
   console.log("show edges >", showEdges[0].node.frontmatter.cover);
 
@@ -45,4 +45,4 @@ const Show = ({ showEdges, showName }) => {
   );
 };
 
-export default Show;
+export default Feed;
